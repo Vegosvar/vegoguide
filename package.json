@@ -24,5 +24,8 @@
       "not op_mini all",
       "ie 11"
     ]
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.2"
   }
 }
