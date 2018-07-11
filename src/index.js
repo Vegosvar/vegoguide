@@ -19,3 +19,12 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+if (process.env.NODE_ENV !== 'production') {
+  // HMR support
+  if (module.hot) {
+    module.hot.accept('./components/App', () => {
+      ReactDOM.render(<App />, document.getElementById('root'));
+    });
+  }
+}
