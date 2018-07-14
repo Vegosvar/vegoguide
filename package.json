@@ -5,8 +5,10 @@
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "2.0.0-next.3e165448"
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
+    "react-scripts": "2.0.0-next.3e165448",
+    "redux": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,8 +29,5 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^4.9.2",
-    "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
   }
 }
