@@ -6,7 +6,7 @@ import style from './style.module.scss';
 const App = ({ routes, store }) => (
   <Provider store={store}>
     <Router>
-      <div class={style.app}>
+      <div className={style.app}>
         {routes}
       </div>
     </Router>
