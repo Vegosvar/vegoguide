@@ -1,9 +1,7 @@
-const CREATE_PAGE = 'CREATE_PAGE';
+import { CREATE_PAGE } from './constants';
 
 const actions = {
-  [CREATE_PAGE] ({ state, page }) {
-    console.log('create page!', page);
-
+  [CREATE_PAGE]({ state, page }) {
     state.items.push(page);
 
     return state;
