@@ -3,11 +3,11 @@ import { Post as PostContainer } from 'containers';
 
 const Post = ({
   match: {
-    params: { id }
+    params: { url }
   }
 }) => (
   <div>
-    <PostContainer id={id} />
+    <PostContainer url={url} />
   </div>
 );
 

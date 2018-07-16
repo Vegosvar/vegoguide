@@ -1,7 +1,7 @@
 import { Post as component } from 'views';
 
 const Post = {
-  path: '/:id',
+  path: '/:url',
   component
 };
 
