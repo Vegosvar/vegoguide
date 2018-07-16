@@ -1,11 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import style from './style.module.scss';
 
 const App = ({ routes, store }) => (
   <Provider store={store}>
     <Router>
-      <div>
+      <div class={style.app}>
         {routes}
       </div>
     </Router>

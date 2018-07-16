@@ -1,15 +1,6 @@
 @import 'src/styles/index';
 
-.wrapper {
-  text-align: center;
-}
-
-.header {
-  align-items: center;
-  background-color: $color-background-default;
-  display: flex;
-  flex-direction: column;
-  font-size: $font-size-lg;
-  justify-content: center;
-  min-height: 100vh;
+.app {
+  height: 100%;
+  width: 100%;
 }
