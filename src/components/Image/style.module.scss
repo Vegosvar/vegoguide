@@ -1,0 +1,7 @@
+@import 'src/styles/index';
+
+.image {
+  @extend .img-responsive;
+  @extend .img-fit-cover;
+  @extend .s-rounded;
+}
