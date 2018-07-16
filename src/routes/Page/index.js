@@ -1,7 +1,7 @@
 import { Page as component } from 'views';
 
 const Page = {
-  path: '/:category/:id',
+  path: '/:id',
   component
 };
 
