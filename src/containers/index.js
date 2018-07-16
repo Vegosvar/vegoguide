@@ -1,1 +1,2 @@
-export { default as PageCardGrid } from './PageCardGrid';
+export { default as PostCardGrid } from './PostCardGrid';
+export { default as Post } from './Post';

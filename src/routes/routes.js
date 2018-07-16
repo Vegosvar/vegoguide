@@ -1,6 +1,6 @@
 import Home from './Home';
-import Page from './Page';
+import Post from './Post';
 
-const routes = [Home, Page];
+const routes = [Home, Post];
 
 export default routes;

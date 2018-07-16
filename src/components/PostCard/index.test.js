@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PageCardGrid from './index';
+import PostCard from './index';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<PageCardGrid />, div);
+  ReactDOM.render(<PostCard />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

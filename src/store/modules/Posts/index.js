@@ -1,7 +1,7 @@
 import actions from './actions';
 import initialState from './state';
 
-const Pages = ({ state = initialState, action } = {}) => {
+const Posts = ({ state = initialState, action } = {}) => {
   if (action in actions) {
     return actions[action]({ ...state });
   }
@@ -9,4 +9,4 @@ const Pages = ({ state = initialState, action } = {}) => {
   return state;
 };
 
-export default Pages;
+export default Posts;

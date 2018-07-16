@@ -1,11 +1,11 @@
 import React from 'react';
-import PageCardGrid from 'containers/PageCardGrid';
+import PostCardGrid from 'containers/PostCardGrid';
 import { Container, Page } from 'components';
 
 const Home = () => (
   <Container>
     <Page>
-      <PageCardGrid />
+      <PostCardGrid />
     </Page>
   </Container>
 );
