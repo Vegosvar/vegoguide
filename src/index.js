@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
 import * as serviceWorker from './scripts/serviceWorker';
-import { Provider } from 'react-redux';
+import routes from './routes';
 import configureStore from './store';
+import App from './components/App';
 import './styles/index.scss';
 
 const store = configureStore();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <App routes={routes} store={store} />,
   document.getElementById('root')
 );
 

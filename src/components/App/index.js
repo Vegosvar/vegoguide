@@ -1,21 +1,15 @@
 import React from 'react';
-import style from './style.module.scss';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-const App = () => (
-  <div className={style.wrapper}>
-    <header className={style.header}>
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
+const App = ({ routes, store }) => (
+  <Provider store={store}>
+    <Router>
+      <div>
+        {routes}
+      </div>
+    </Router>
+  </Provider>
 );
 
 export default App;
