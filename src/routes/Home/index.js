@@ -1,9 +1,9 @@
-import { Home as component } from 'views';
-
 const Home = {
   path: '/',
   exact: true,
-  component
+  component: () =>
+    import(/* webpackChunkName: 'views/Home' */
+    'views/Home')
 };
 
 export default Home;

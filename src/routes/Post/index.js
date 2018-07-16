@@ -1,8 +1,8 @@
-import { Post as component } from 'views';
-
 const Post = {
   path: '/:url',
-  component
+  component: () =>
+    import(/* webpackChunkName: 'views/Post' */
+    'views/Post')
 };
 
 export default Post;
