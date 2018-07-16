@@ -1,0 +1,9 @@
+@import 'src/styles/index';
+
+.container {
+  @extend .container;
+
+  &.lg {
+    @extend .grid-lg;
+  }
+}
