@@ -1,5 +1,17 @@
 @import 'src/styles/index';
 
 .post {
-  padding: 0.75rem 1.25rem;
+  .details {
+    background: $primary-color-dark;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    color: $secondary-color-dark;
+
+    padding: 0.75rem;
+  }
+
+  .address,
+  .title {
+    margin-bottom: 0;
+  }
 }
