@@ -1,9 +1,13 @@
 import React from 'react';
 import style from './style.module.scss';
 
-const Loading = () => (
-  <div className={style.wrapper}>
-    <div className={style.loader}></div>
+const Loading = ({ height = 'auto' } = {}) => (
+  <div
+    className={style.wrapper}
+    style={{
+      height
+    }}>
+    <div className={style.loader} />
   </div>
 );
 
