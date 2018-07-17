@@ -19,7 +19,7 @@ const Image = ({
         height,
         width
       }}
-      loader={Loading()}
+      loader={<Loading height={height} />}
     />
   );
 };
