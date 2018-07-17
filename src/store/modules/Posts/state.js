@@ -14,6 +14,15 @@ const state = {
       address: 'Kaponjargatan 4 A, Göteborg, Sverige',
       rating: 4.51,
       ratings: 1031,
+      images: [
+        {
+          title: 'Solrosens uteservering',
+          thumbnail:
+            'https://media-cdn.tripadvisor.com/media/photo-w/10/4d/46/bc/clean-open-patio-on-quiet.jpg',
+          original:
+            'https://media-cdn.tripadvisor.com/media/photo-o/10/4d/46/bc/clean-open-patio-on-quiet.jpg'
+        }
+      ],
       comments: [
         {
           comment: 'Pretty good food and all',
@@ -38,6 +47,15 @@ const state = {
       address: 'Mariaplan | Mariagatan 6, Göteborg 414 71, Sverige',
       rating: 3.9,
       ratings: 310,
+      images: [
+        {
+          title: 'Korvkiosken',
+          thumbnail:
+            'https://media-cdn.tripadvisor.com/media/photo-w/07/54/88/88/korvkiosken.jpg',
+          original:
+            'https://media-cdn.tripadvisor.com/media/photo-o/07/54/88/88/korvkiosken.jpg'
+        }
+      ],
       comments: [
         {
           comment: 'Decent for a quick meal',
