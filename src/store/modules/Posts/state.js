@@ -5,6 +5,7 @@ const state = {
       url: 'solrosen',
       label: 'Solrosen',
       cover: {
+        title: "Solrosens uteservering",
         thumbnail:
           'https://media-cdn.tripadvisor.com/media/photo-w/10/4d/46/bc/clean-open-patio-on-quiet.jpg',
         original:
@@ -38,6 +39,7 @@ const state = {
       url: 'korv-kiosken-i-majorna',
       label: 'Korvkiosken i Majorna',
       cover: {
+        title: "Korvkiosken",
         thumbnail:
           'https://media-cdn.tripadvisor.com/media/photo-w/07/54/88/88/korvkiosken.jpg',
         original:
