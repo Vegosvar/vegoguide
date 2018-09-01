@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card } from 'components';
+import { Card, Image } from 'components';
 
 const PostCard = ({ image, label, url }) => (
   <Link to={url}>
