@@ -1,10 +1,11 @@
-import { CREATE_POST } from './constants';
+import { SET_FILTER_VALUE } from "./constants";
 
 const actions = {
-  [CREATE_POST]({ state, post }) {
-    state.items.push(post);
-
-    return state;
+  [SET_FILTER_VALUE](value) {
+    return {
+      type: SET_FILTER_VALUE,
+      value
+    };
   }
 };
 
