@@ -2,10 +2,10 @@ import { connect } from "react-redux";
 import { Filter } from "components";
 import actions from "store/modules/Posts/actions";
 
-const { SET_FILTER_VALUE } = actions;
+const { SET_FILTER_CATEGORIES } = actions;
 
 const mapDispatchToProps = dispatch => ({
-  setFilterValue: value => dispatch(SET_FILTER_VALUE(value))
+  setFilter: values => dispatch(SET_FILTER_CATEGORIES(values))
 });
 
 const mapStateToProps = state => ({
