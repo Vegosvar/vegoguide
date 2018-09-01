@@ -1,9 +1,8 @@
 import React from "react";
-import { get, isEqual } from "lodash";
+import { get } from "lodash";
 import { FilterItem } from "components";
 import style from "./style.module.scss";
 
-  const isSelected = option => isEqual(get(option, "value", option), value);
 const Filter = ({ options, values, setFilter }) => {
   const callback = value => {
     if (values.includes(value)) {
@@ -14,6 +13,7 @@ const Filter = ({ options, values, setFilter }) => {
     }
   };
 
+  const isSelected = option => values.includes(get(option, "value", option));
   const filterOptions = options.map((option, index) => (
     <FilterItem
       key={index}
