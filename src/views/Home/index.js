@@ -1,11 +1,11 @@
 import React from "react";
-import { PostFilter, PostCardGrid } from "containers";
+import { PostFilterCategories, PostCardGrid } from "containers";
 import { Container, Page } from "components";
 
 const Home = () => (
   <Container>
     <Page>
-      <PostFilter />
+      <PostFilterCategories />
       <PostCardGrid />
     </Page>
   </Container>
