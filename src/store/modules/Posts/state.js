@@ -66,7 +66,10 @@ const state = {
         }
       ]
     }
-  ]
+  ],
+  filter: {
+    categories: []
+  }
 };
 
 export default state;
