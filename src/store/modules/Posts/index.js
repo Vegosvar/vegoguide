@@ -1,9 +1,9 @@
-import actions from './actions';
-import initialState from './state';
+import reducers from "./reducers";
+import initialState from "./state";
 
-const Posts = ({ state = initialState, action } = {}) => {
-  if (action in actions) {
-    return actions[action]({ ...state });
+const Posts = (state = initialState, { type, ...action }) => {
+  if (type in reducers) {
+    return reducers[type](state, { ...action });
   }
 
   return state;
