@@ -1,1 +1,2 @@
-export const CREATE_POST = 'CREATE_POST';
+export const CREATE_POST = "CREATE_POST";
+export const SET_FILTER_VALUE = "SET_FILTER_VALUE";
