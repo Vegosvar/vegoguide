@@ -1,10 +1,11 @@
-import React from 'react';
-import { PostCardGrid } from 'containers';
-import { Container, Page } from 'components';
+import React from "react";
+import { PostFilter, PostCardGrid } from "containers";
+import { Container, Page } from "components";
 
 const Home = () => (
   <Container>
     <Page>
+      <PostFilter />
       <PostCardGrid />
     </Page>
   </Container>
