@@ -1,4 +1,4 @@
-import { CREATE_POST, SET_FILTER_VALUE } from "./constants";
+import { CREATE_POST, SET_FILTER_CATEGORIES } from "./constants";
 
 const reducers = {
   [CREATE_POST](state, { post }) {
@@ -6,8 +6,8 @@ const reducers = {
 
     return state;
   },
-  [SET_FILTER_VALUE](state, { value }) {
     state.filter.value = value;
+  [SET_FILTER_CATEGORIES](state, { value }) {
 
     return state;
   }

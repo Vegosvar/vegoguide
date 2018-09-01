@@ -1,9 +1,9 @@
-import { SET_FILTER_VALUE } from "./constants";
+import { SET_FILTER_CATEGORIES } from "./constants";
 
 const actions = {
-  [SET_FILTER_VALUE](value) {
+  [SET_FILTER_CATEGORIES](value) {
     return {
-      type: SET_FILTER_VALUE,
+      type: SET_FILTER_CATEGORIES,
       value
     };
   }
