@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel, Image } from 'components';
+import { Carousel } from 'components';
 import style from './style.module.scss';
 
 const Post = ({ address, cover, images, label }) => (
