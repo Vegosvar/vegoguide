@@ -28,6 +28,7 @@ const state = {
         {
           comment: 'Pretty good food and all',
           date: '2016-09-12 12:34:00',
+          id: "67890",
           user: {
             displayName: 'Jorg Knarp'
           }
@@ -62,6 +63,7 @@ const state = {
         {
           comment: 'Decent for a quick meal',
           date: '2018-02-21 01:49:00',
+          id: "09876",
           user: {
             displayName: 'Lorv Eghe'
           }
