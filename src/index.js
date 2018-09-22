@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import routes from "./routes";
+import configureStore from "./store";
+import App from "./components/App";
+import "./styles/index.scss";
 // import * as serviceWorker from './scripts/serviceWorker';
-import routes from './routes';
-import configureStore from './store';
-import App from './components/App';
-import './styles/index.scss';
 
 const store = configureStore();
 
 ReactDOM.render(
   <App routes={routes} store={store} />,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
@@ -19,7 +19,7 @@ ReactDOM.render(
 
 // serviceWorker.unregister();
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== "production") {
   // HMR support
   if (module.hot) {
     module.hot.accept(["./components", "./routes", "./views"], () => {
