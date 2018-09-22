@@ -25,6 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "lint": "eslint --ignore-path .gitignore src",
+    "lint-fix": "eslint --ignore-path .gitignore src --fix",
     "eject": "react-scripts eject"
   },
   "browserslist": {
