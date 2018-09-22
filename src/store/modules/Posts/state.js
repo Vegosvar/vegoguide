@@ -70,6 +70,11 @@ const state = {
   filter: {
     categories: [],
   },
+  sync: {
+    fetch: [],
+    update: [],
+    remove: [],
+  },
 };
 
 export default state;
