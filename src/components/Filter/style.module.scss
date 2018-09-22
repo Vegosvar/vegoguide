@@ -1,3 +1,6 @@
+@import 'src/styles/index';
+
 .filter {
-  background: blue;
+  background: $dark-color;
+  display: flex;
 }

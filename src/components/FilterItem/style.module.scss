@@ -1,6 +1,13 @@
 @import 'src/styles/index';
 
 .item {
-  color: $dark-color;
   cursor: pointer;
+  margin: .25rem .125rem;
+}
+
+.selected {
+  .label {
+    background-color: $primary-color;
+    color: $secondary-color;
+  }
 }
