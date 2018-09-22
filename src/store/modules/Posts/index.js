@@ -1,5 +1,5 @@
-import reducers from "./reducers";
-import initialState from "./state";
+import reducers from './reducers';
+import initialState from './state';
 
 const Posts = (state = initialState, { type, ...action }) => {
   if (type in reducers) {
