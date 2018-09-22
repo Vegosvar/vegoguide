@@ -1,37 +1,36 @@
-const token = '12345';
-const url = "http://localhost:8080/pages";
+import { getUrl } from './helpers';
 
 const Pages = {
   create(body) {
-    return fetch(url, {
+    return fetch(getUrl('pages'), {
       body,
-      method: "POST"
+      method: 'POST',
     });
   },
 
   fetch() {
-    return fetch(url);
+    return fetch(getUrl('pages'));
   },
 
   patch(id, body) {
-    return fetch(`${url}/${id}`, {
+    return fetch(`${getUrl('pages')}/${id}`, {
       body,
-      method: "PUT"
+      method: 'PUT',
     });
   },
 
   remove(id) {
-    return fetch(`${url}/${id}`, {
-      method: "DELETE"
+    return fetch(`${getUrl('pages')}/${id}`, {
+      method: 'DELETE',
     });
   },
 
   update(id, body) {
-    return fetch(`${url}/${id}`, {
+    return fetch(`${getUrl('pages')}/${id}`, {
       body,
-      method: "PUT"
+      method: 'PUT',
     });
-  }
+  },
 };
 
 export default Pages;
