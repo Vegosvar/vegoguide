@@ -22,8 +22,14 @@ ReactDOM.render(
 if (process.env.NODE_ENV !== 'production') {
   // HMR support
   if (module.hot) {
-    module.hot.accept('./components/App', () => {
-      ReactDOM.render(<App />, document.getElementById('root'));
+    module.hot.accept(["./components", "./routes", "./views"], () => {
+      const NextApp = require("./components/App").default;
+      const NewRoutes = require("./routes").default;
+
+      ReactDOM.render(
+        <NextApp routes={NewRoutes} store={store} />,
+        document.getElementById("root")
+      );
     });
   }
 }
