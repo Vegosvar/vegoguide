@@ -1,5 +1,6 @@
 import React from 'react';
 import { Carousel } from 'components';
+import PropTypes from './prop-types';
 import style from './style.module.scss';
 
 const Post = ({
@@ -22,5 +23,7 @@ const Post = ({
     </div>
   </div>
 );
+
+Post.propTypes = PropTypes;
 
 export default Post;
