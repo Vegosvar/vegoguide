@@ -3,6 +3,10 @@
 .item {
   cursor: pointer;
   margin: .25rem .125rem;
+
+  .label {
+    user-select: none;
+  }
 }
 
 .selected {
