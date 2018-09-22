@@ -1,15 +1,22 @@
 import React from "react";
 import { get } from "lodash";
+import classNames from "classnames";
 import style from "./style.module.scss";
 
 const Filter = ({ option, selected, callback }) => {
   const value = get(option, "value", option);
-  const label = get(option, "label");
+  const label = get(option, "label", option);
+
+  const classes = classNames([
+    style.item,
+    {
+      [style.selected]: selected
+    }
+  ]);
 
   return (
-    <div className={style.item} onClick={() => callback(value)}>
-      {label ? <div className={style.label}>{label}</div> : ""}
-      <div className={style.value}>{value}</div>
+    <div className={classes} onClick={callback.bind(this, value)}>
+      <div className={style.label}>{label}</div>
     </div>
   );
 };
