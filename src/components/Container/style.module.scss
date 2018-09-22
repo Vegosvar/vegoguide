@@ -3,6 +3,8 @@
 .container {
   @extend .container;
 
+  height: 100%;
+
   &.lg {
     @extend .grid-lg;
   }
