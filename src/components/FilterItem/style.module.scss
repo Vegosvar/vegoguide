@@ -1,4 +1,6 @@
+@import 'src/styles/index';
+
 .item {
-  color: white;
+  color: $dark-color;
   cursor: pointer;
 }
