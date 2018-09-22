@@ -1,6 +1,6 @@
-import React from 'react';
-import { Post as PostContainer } from 'containers';
-import { Container, Page } from 'components';
+import React from "react";
+import { Post as PostContainer } from "containers";
+import { Container, Page } from "components";
 
 const Post = ({
   match: {
