@@ -23,6 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
   // HMR support
   if (module.hot) {
     module.hot.accept(['./components', './routes', './views'], () => {
+      /* eslint-disable global-require */
       const NextApp = require('./components/App').default;
       const NewRoutes = require('./routes').default;
 
