@@ -1,1 +1,5 @@
-export { default as Pages } from './pages';
+import Posts from './posts';
+
+export default {
+  Posts
+}
