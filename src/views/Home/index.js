@@ -1,6 +1,6 @@
-import React from "react";
-import { PostFilterCategories, PostCardGrid } from "containers";
-import { Container, Page } from "components";
+import React from 'react';
+import { PostFilterCategories, PostCardGrid } from 'containers';
+import { Container, Page } from 'components';
 
 const Home = () => (
   <Container>
