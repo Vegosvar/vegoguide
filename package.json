@@ -2,6 +2,8 @@
   "name": "cra-cssmodules",
   "version": "0.1.0",
   "private": true,
+  "author": "Tobias Järvelöv",
+  "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
     "@fortawesome/free-solid-svg-icons": "^5.3.1",
