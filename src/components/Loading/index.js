@@ -5,8 +5,9 @@ const Loading = ({ height = 'auto' } = {}) => (
   <div
     className={style.wrapper}
     style={{
-      height
-    }}>
+      height,
+    }}
+  >
     <div className={style.loader} />
   </div>
 );

@@ -2,7 +2,9 @@ import React from 'react';
 import { Carousel } from 'components';
 import style from './style.module.scss';
 
-const Post = ({ address, cover, images, label }) => (
+const Post = ({
+  address, cover, images, label,
+}) => (
   <div className={style.post}>
     <div className={style.cover}>
       <Carousel
@@ -10,7 +12,7 @@ const Post = ({ address, cover, images, label }) => (
         height="350px"
         images={images.map(({ title, original }) => ({
           alt: title,
-          src: original
+          src: original,
         }))}
       />
     </div>

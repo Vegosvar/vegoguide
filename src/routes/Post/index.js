@@ -1,8 +1,8 @@
 const Post = {
   path: '/:url',
-  component: () =>
-    import(/* webpackChunkName: 'views/Post' */
-    'views/Post')
+  component: () => import(/* webpackChunkName: 'views/Post' */
+    'views/Post',
+  ),
 };
 
 export default Post;

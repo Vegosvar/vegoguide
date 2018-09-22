@@ -8,20 +8,18 @@ const Image = ({
   height = 'auto',
   fallback,
   src,
-  width = 'auto'
-}) => {
-  return (
-    <Img
-      className={style.image}
-      src={src}
-      unloader={fallback}
-      style={{
-        height,
-        width
-      }}
-      loader={<Loading height={height} />}
-    />
-  );
-};
+  width = 'auto',
+}) => (
+  <Img
+    className={style.image}
+    src={src}
+    unloader={fallback}
+    style={{
+      height,
+      width,
+    }}
+    loader={<Loading height={height} />}
+  />
+);
 
 export default Image;

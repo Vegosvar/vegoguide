@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronLeft,
-  faChevronRight
+  faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Image } from 'components';
 import style from './style.module.scss';
@@ -29,9 +29,10 @@ const Carousel = ({ active = 0, height = 'auto', images = [] }) => {
       <figure
         className={classnames([
           style.carouselItem,
-          active === index ? style.noAnimation : undefined
+          active === index ? style.noAnimation : undefined,
         ])}
-        key={index}>
+        key={index}
+      >
         {images.length > 1 ? (
           <React.Fragment>
             <label className={style.itemPrev} htmlFor={`slide-${prevIndex}`}>
@@ -49,21 +50,21 @@ const Carousel = ({ active = 0, height = 'auto', images = [] }) => {
     );
   });
 
-  const navigation =
-    images.length > 1 ? (
-      <div className={style.carouselNavigation}>
-        {images.map((image, index) => (
-          <label
-            className={style.carouselNavigationItem}
-            htmlFor={`slide-${index}`}
-            key={index}>
-            {index}
-          </label>
-        ))}
-      </div>
-    ) : (
-      ''
-    );
+  const navigation = images.length > 1 ? (
+    <div className={style.carouselNavigation}>
+      {images.map((image, index) => (
+        <label
+          className={style.carouselNavigationItem}
+          htmlFor={`slide-${index}`}
+          key={index}
+        >
+          {index}
+        </label>
+      ))}
+    </div>
+  ) : (
+    ''
+  );
   return (
     <div className={style.carousel} style={{ height }}>
       {inputs}
