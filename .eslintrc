@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "plugin:react/recommended"],
+  "extends": ["airbnb"],
   "plugins": ["react"],
   "env": {
     "browser": true
