@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import routes from './routes';
+import routeConfigurations from './routes';
 
 const getRoutes = (routes = []) => routes.reduce(
   (allRoutes, { routes: subRoutes = [], ...route }) => [
@@ -11,4 +11,4 @@ const getRoutes = (routes = []) => routes.reduce(
   [],
 );
 
-export default getRoutes(routes);
+export default getRoutes(routeConfigurations);
