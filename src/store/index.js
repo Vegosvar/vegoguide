@@ -1,11 +1,11 @@
-import modules from './modules';
 import { createStore } from 'redux';
+import modules from './modules';
 
-const reduxDevTools =
-  process.env.NODE_ENV === 'development' &&
-  typeof window.__REDUX_DEVTOOLS_EXTENSION__ === 'function'
-    ? window.__REDUX_DEVTOOLS_EXTENSION__()
-    : undefined;
+/* eslint-disable no-underscore-dangle */
+const reduxDevTools = process.env.NODE_ENV === 'development'
+  && typeof window.__REDUX_DEVTOOLS_EXTENSION__ === 'function'
+  ? window.__REDUX_DEVTOOLS_EXTENSION__()
+  : undefined;
 
 const configureStore = () => {
   const store = createStore(modules, reduxDevTools);
