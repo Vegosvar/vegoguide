@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Loading, Post } from 'components';
-import { mapActions } from 'store';
-import { SET_FILTER_CATEGORIES } from 'store/modules/Posts/constants';
+import { mapThunks } from 'store';
+import { FETCH_POSTS } from 'store/modules/Posts/constants';
 
 const mapStateToProps = (state, { url }) => ({
   post: state.Posts.items.find(item => item.url === url)
 });
 
-const mapDispatchToProps = mapActions('Posts', {
-  setFilter: SET_FILTER_CATEGORIES
+const mapDispatchToProps = mapThunks('Posts', {
+  fetchPosts: FETCH_POSTS
 });
 
-const PostContainer = ({ post, fetchPost }, { url }) => {
+const PostContainer = ({ url, post, fetchPosts }) => {
   if (!post) {
-    fetchPost({
+    fetchPosts({
       query: {
         url: {
           $in: [url]
