@@ -21,7 +21,7 @@ const reducers = {
     set(state, 'filter.categories', value);
 
     return state;
-  },
+  }
 };
 
 export default reducers;
