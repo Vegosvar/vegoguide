@@ -1,11 +1,18 @@
+import React from 'react';
 import { connect } from 'react-redux';
-import { PostCardGrid } from 'components';
+import { Loading, PostCardGrid } from 'components';
+import { mapThunks } from 'store';
+import { FETCH_POSTS } from 'store/modules/Posts/constants';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const props = {};
 
   if (state.Posts.filter.categories.length > 0) {
-    props.items = state.Posts.items.filter(item => item.categories.some(category => state.Posts.filter.categories.includes(category)));
+    props.items = state.Posts.items.filter(item =>
+      item.categories.some(category =>
+        state.Posts.filter.categories.includes(category)
+      )
+    );
   } else {
     props.items = state.Posts.items;
   }
@@ -13,4 +20,20 @@ const mapStateToProps = (state) => {
   return props;
 };
 
-export default connect(mapStateToProps)(PostCardGrid);
+const mapDispatchToProps = mapThunks('Posts', {
+  fetchPosts: FETCH_POSTS
+});
+
+const PostCardGridContainer = ({ items, fetchPosts }) => {
+  if (!items || items.length === 0) {
+    fetchPosts();
+    return <Loading height="100%" />;
+  }
+
+  return <PostCardGrid items={items} />;
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PostCardGridContainer);

@@ -1,25 +1,24 @@
 import { connect } from 'react-redux';
 import { Filter } from 'components';
-import actions from 'store/modules/Posts/actions';
+import { mapActions } from 'store';
+import { SET_FILTER_CATEGORIES } from 'store/modules/Posts/constants';
 
-const { SET_FILTER_CATEGORIES } = actions;
-
-const mapDispatchToProps = dispatch => ({
-  setFilter: values => dispatch(SET_FILTER_CATEGORIES(values)),
+const mapDispatchToProps = mapActions('Posts', {
+  setFilter: SET_FILTER_CATEGORIES
 });
 
 const mapStateToProps = state => ({
   options: state.Posts.items.reduce(
     (categories, item) => [
       ...categories,
-      ...item.categories.filter(category => !categories.includes(category)),
+      ...item.categories.filter(category => !categories.includes(category))
     ],
-    [],
+    []
   ),
-  values: state.Posts.filter.categories,
+  values: state.Posts.filter.categories
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Filter);
