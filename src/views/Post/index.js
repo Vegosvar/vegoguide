@@ -5,8 +5,8 @@ import PropTypes from './prop-types';
 
 const Post = ({
   match: {
-    params: { url },
-  },
+    params: { url }
+  }
 }) => (
   <Container>
     <Page>
