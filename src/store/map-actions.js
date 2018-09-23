@@ -5,9 +5,7 @@ export default (namespace, actions) => dispatch =>
     (boundActions, key) => ({
       ...boundActions,
       [key]: (...params) =>
-        Promise.resolve(
-          modules[namespace].actions[actions[key]].apply(null, params)
-        ).then(dispatch)
+        dispatch(modules[namespace].actions[actions[key]].apply(null, params))
     }),
     {}
   );
