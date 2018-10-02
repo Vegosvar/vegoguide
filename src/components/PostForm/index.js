@@ -7,6 +7,7 @@ import {
   Col,
   FormGroup,
   Input,
+  ImageUpload,
   Label
 } from 'components';
 import PropTypes from './prop-types';
@@ -29,11 +30,24 @@ class PostForm extends React.Component {
     });
   }
 
+  onChangeImages(key, files) {
+    console.log(files);
+  }
+
   onSubmit() {
     console.log('onSubmit', this.state.model);
   }
 
   render() {
+    const images = (
+      <FormGroup>
+        <ImageUpload
+          accept="image/jpeg, image/png"
+          onChange={this.onChangeImages.bind(this, 'images')}
+        />
+      </FormGroup>
+    );
+
     const title = (
       <FormGroup>
         <Label id="title">Title</Label>
@@ -54,7 +68,7 @@ class PostForm extends React.Component {
     return (
       <form className={style.form} noValidate>
         <Row>
-          <Col>Image upload</Col>
+          <Col>{images}</Col>
         </Row>
         <Container>
           <Row>
