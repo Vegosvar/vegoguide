@@ -1,0 +1,20 @@
+@import 'src/styles/index';
+
+.wrapper {
+  min-height: 350px;
+}
+
+.dropzone {
+  border-color: $tertiary-color;
+  border-radius: $border-radius;
+  border-style: solid;
+  border-width: 1px;
+
+  height: 100%;
+  min-height: 300px;
+  width: 100%;
+
+  &.active {
+    border-color: $primary-color;
+  }
+}

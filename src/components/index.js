@@ -8,6 +8,8 @@ export { default as Filter } from './Filter';
 export { default as FilterItem } from './FilterItem';
 export { default as FormGroup } from './FormGroup';
 export { default as Image } from './Image';
+export { default as ImageCrop } from './ImageCrop';
+export { default as ImageUpload } from './ImageUpload';
 export { default as Input } from './Input';
 export { default as Label } from './Label';
 export { default as Loading } from './Loading';
