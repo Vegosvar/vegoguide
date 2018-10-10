@@ -1,4 +1,9 @@
-import { CREATE_POST, FETCH_POSTS, SET_FILTER_CATEGORIES } from './constants';
+import {
+  CREATE_POST,
+  FETCH_POSTS,
+  UPDATE_POST,
+  SET_FILTER_CATEGORIES
+} from './constants';
 
 const actions = {
   [CREATE_POST](value) {
@@ -10,6 +15,12 @@ const actions = {
   [FETCH_POSTS](value) {
     return {
       type: FETCH_POSTS,
+      value
+    };
+  },
+  [UPDATE_POST](value) {
+    return {
+      type: UPDATE_POST,
       value
     };
   },
