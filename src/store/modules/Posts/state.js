@@ -4,7 +4,6 @@ const state = {
     categories: []
   },
   sync: {
-    fetch: [],
     update: [],
     remove: []
   }
