@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import routes from './routes';
-import configureStore from './store';
+import store from './store';
 import App from './components/App';
 import './styles/index.scss';
 // import * as serviceWorker from './scripts/serviceWorker';
-
-const store = configureStore();
 
 ReactDOM.render(
   <App routes={routes} store={store} />,

@@ -1,20 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { PostForm } from 'components';
-import { mapThunks } from 'store';
-import { CREATE_POST } from 'store/modules/Posts/constants';
+import { CREATE_POST, UPDATE_POST } from 'store/modules/Posts/constants';
 import uuidv4 from 'uuid/v4';
 
 const mapStateToProps = (state, { localId }) => ({
   post: state.Posts.items.find(item => item.localId === localId)
 });
 
-const mapDispatchToProps = mapThunks('Posts', {
-  CREATE_POST
+const mapDispatchToProps = dispatch => ({
+  create: data => dispatch({ type: CREATE_POST, data }),
+  update: data => dispatch({ type: UPDATE_POST, data })
 });
 
-const PostFormContainer = ({ CREATE_POST, UPDATE_POST, post }) => {
-  const submit = post ? UPDATE_POST : CREATE_POST;
+const PostFormContainer = ({ create, update, post }) => {
+  const submit = post ? create : update;
 
   const postValue = post || {
     localId: uuidv4()

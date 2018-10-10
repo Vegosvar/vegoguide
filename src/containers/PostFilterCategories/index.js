@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
 import { Filter } from 'components';
-import { mapActions } from 'store';
 import { SET_FILTER_CATEGORIES } from 'store/modules/Posts/constants';
 
-const mapDispatchToProps = mapActions('Posts', {
-  setFilter: SET_FILTER_CATEGORIES
+const mapDispatchToProps = dispatch => ({
+  setFilter: data =>
+    dispatch({
+      type: SET_FILTER_CATEGORIES,
+      data
+    })
 });
 
 const mapStateToProps = state => ({
