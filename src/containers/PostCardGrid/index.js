@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Loading, PostCardGrid } from 'components';
-import { FETCH_POSTS } from 'store/modules/Posts/constants';
+import { fetchPosts } from 'store/modules/Posts/actions';
 
 const mapStateToProps = state => {
   const props = {};
@@ -19,13 +19,9 @@ const mapStateToProps = state => {
   return props;
 };
 
-const mapDispatchToProps = dispatch => ({
-  fetchPosts: data =>
-    dispatch({
-      type: FETCH_POSTS,
-      data
-    })
-});
+const mapDispatchToProps = {
+  fetchPosts
+};
 
 const PostCardGridContainer = ({ items, fetchPosts }) => {
   if (!items || items.length === 0) {

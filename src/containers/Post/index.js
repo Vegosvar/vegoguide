@@ -1,19 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Loading, Post } from 'components';
-import { FETCH_POSTS } from 'store/modules/Posts/constants';
+import { fetchPosts } from 'store/modules/Posts/actions';
 
 const mapStateToProps = (state, { url }) => ({
   post: state.Posts.items.find(item => item.url === url)
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchPosts: data =>
-    dispatch({
-      type: FETCH_POSTS,
-      ...data
-    })
-});
+const mapDispatchToProps = {
+  fetchPosts
+};
 
 const PostContainer = ({ url, post, fetchPosts }) => {
   if (!post) {

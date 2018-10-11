@@ -1,14 +1,6 @@
 import { connect } from 'react-redux';
 import { Filter } from 'components';
-import { SET_FILTER_CATEGORIES } from 'store/modules/Posts/constants';
-
-const mapDispatchToProps = dispatch => ({
-  setFilter: data =>
-    dispatch({
-      type: SET_FILTER_CATEGORIES,
-      data
-    })
-});
+import { setFilterCategories } from 'store/modules/Posts/actions';
 
 const mapStateToProps = state => ({
   options: state.Posts.items.reduce(
@@ -20,6 +12,10 @@ const mapStateToProps = state => ({
   ),
   values: state.Posts.filter.categories
 });
+
+const mapDispatchToProps = {
+  onChange: setFilterCategories
+};
 
 export default connect(
   mapStateToProps,
