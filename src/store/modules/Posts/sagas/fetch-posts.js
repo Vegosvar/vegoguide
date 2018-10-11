@@ -3,7 +3,6 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { CREATE_POST, FETCH_POSTS } from '../constants';
 
 function* worker({ params, settings } = {}) {
-  console.log('worker called', params);
   // Call the API and fetch the posts
   const response = yield call(Api.Posts.fetch, params, settings);
 
