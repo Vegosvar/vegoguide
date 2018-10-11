@@ -7,8 +7,8 @@ const reducers = {
 
     return state;
   },
-  [SET_FILTER_CATEGORIES](state, { value }) {
-    set(state, 'filter.categories', value);
+  [SET_FILTER_CATEGORIES](state, { ids }) {
+    set(state, 'filter.categories', ids);
 
     return state;
   }
