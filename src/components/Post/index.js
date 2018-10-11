@@ -12,11 +12,13 @@ const Post = ({
   <div className={style.post}>
     <div className={style.cover}>
       <Carousel
-        active={images.findIndex(({ original }) => original === cover.original)}
+        active={images.findIndex(
+          ({ original }) => original._id === cover.original._id
+        )}
         height="350px"
         images={images.map(({ title, original }) => ({
           alt: title,
-          src: original
+          src: original.url
         }))}
       />
     </div>
