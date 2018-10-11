@@ -3,13 +3,13 @@ import { get } from 'lodash';
 import { FilterItem } from 'components';
 import style from './style.module.scss';
 
-const Filter = ({ options, values, setFilter }) => {
+const Filter = ({ options, values, onChange }) => {
   const callback = (value) => {
     if (values.includes(value)) {
       const newValue = values.filter(filtervalue => filtervalue !== value);
-      return setFilter(newValue);
+      return onChange(newValue);
     }
-    return setFilter([...values, value]);
+    return onChange([...values, value]);
   };
 
   const isSelected = option => values.includes(get(option, 'value', option));
