@@ -5,31 +5,23 @@ import {
   SET_FILTER_CATEGORIES
 } from './constants';
 
-const actions = {
-  [CREATE_POST](value) {
-    return {
-      type: CREATE_POST,
-      value
-    };
-  },
-  [FETCH_POSTS](value) {
-    return {
-      type: FETCH_POSTS,
-      value
-    };
-  },
-  [UPDATE_POST](value) {
-    return {
-      type: UPDATE_POST,
-      value
-    };
-  },
-  [SET_FILTER_CATEGORIES](value) {
-    return {
-      type: SET_FILTER_CATEGORIES,
-      value
-    };
-  }
-};
+export const createPost = post => ({
+  type: CREATE_POST,
+  post
+});
 
-export default actions;
+export const fetchPosts = ({ params, settings } = {}) => ({
+  type: FETCH_POSTS,
+  params,
+  settings
+});
+
+export const updatePost = post => ({
+  type: UPDATE_POST,
+  post
+});
+
+export const setFilterCategories = ids => ({
+  type: SET_FILTER_CATEGORIES,
+  ids
+});
