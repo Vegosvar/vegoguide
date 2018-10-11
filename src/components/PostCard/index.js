@@ -4,7 +4,7 @@ import { Card, Image } from 'components';
 
 const PostCard = ({ cover, label, url }) => (
   <Link to={url}>
-    <Image src={cover.thumbnail} alt={label} height="200px" width="100%" />
+    <Image src={cover.thumbnail.url} alt={label} height="200px" width="100%" />
     <Card>
       <div>{label}</div>
     </Card>
