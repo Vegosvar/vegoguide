@@ -33,7 +33,6 @@ const getTransitionClassNames = location => {
       exit: 'slide-in-left-exit',
       exitActive: 'slide-in-left-exit-active'
     };
-
   }
 
   return {
