@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onInput: e => dispatch(setFilterSearch(e.target.value))
+  onChange: e => dispatch(setFilterSearch(e.target.value))
 });
 
 export default connect(
