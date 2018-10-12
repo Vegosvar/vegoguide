@@ -9,5 +9,5 @@ export default {
     PropTypes.string.isRequired
   ]),
   selected: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired
 };

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import propTypes from './prop-types';
 import style from './style.module.scss';
 
-const FilterItem = ({ option, selected, onClick }) => {
+const FilterItem = ({ option, selected, onChange }) => {
   const value = get(option, 'value', option);
   const label = get(option, 'label', option);
 
@@ -15,11 +15,11 @@ const FilterItem = ({ option, selected, onClick }) => {
     }
   ]);
 
-  const onClickHandler = onClick.bind(this, value);
+  const onClickHandler = onChange.bind(this, value);
   const onKeyDownHandler = e => {
     const code = e.which || e.keyCode;
     if (code === 13 || code === 32) { // Enter or space
-      onClick(value);
+      onChange(value);
     }
   };
 
