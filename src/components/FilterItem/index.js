@@ -31,7 +31,7 @@ const FilterItem = ({ option, selected, onChange }) => {
       role="button"
       tabIndex={0}
     >
-      <div className={style.label}>{label}</div>
+      {label}
     </div>
   );
 };
