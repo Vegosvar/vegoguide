@@ -17,10 +17,7 @@ const Filter = ({ options, values = [], onChange }) => {
   const filterOptions = options.map((option, index) => (
     <FilterItem
       key={index}
-      option={{
-        label: option.title,
-        value: option._id
-      }}
+      option={option}
       selected={isSelected(option)}
       callback={callback}
     />
