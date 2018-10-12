@@ -1,4 +1,5 @@
-leading-zero:
-  - 2
-  -
-    include: true
+rules:
+  leading-zero:
+    - 2
+    -
+      include: true
