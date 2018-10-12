@@ -6,7 +6,7 @@ import propTypes from './prop-types';
 import defaultProps from './default-props';
 
 const Filter = ({ options, values, onChange }) => {
-  const callback = value => {
+  const onClickItem = value => {
     if (values.includes(value)) {
       const newValue = values.filter(filtervalue => filtervalue !== value);
       return onChange(newValue);
@@ -21,7 +21,7 @@ const Filter = ({ options, values, onChange }) => {
       key={index}
       option={option}
       selected={isSelected(option)}
-      callback={callback}
+      onClick={onClickItem}
     />
   ));
 
