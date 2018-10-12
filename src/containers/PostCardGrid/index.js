@@ -1,23 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { isEmpty } from 'lodash';
 import { Loading, PostCardGrid } from 'components';
 import { fetchPosts } from 'store/modules/Posts/actions';
 
-const mapStateToProps = state => {
-  const props = {};
+// TODO: These filters could be moved into the store
+const filters = {
+  categories: ({ filter, items }) =>
+    items.filter(item =>
+      item.categories.some(category => filter.includes(category._id))
+    ),
 
-  if (state.Posts.filter.categories.length > 0) {
-    props.items = state.Posts.items.filter(item =>
-      item.categories.some(category =>
-        state.Posts.filter.categories.includes(category._id)
-      )
-    );
-  } else {
-    props.items = state.Posts.items;
-  }
-
-  return props;
+  search: ({ filter, items }) =>
+    items.filter(item => {
+      const regex = new RegExp(filter, 'gim');
+      const itemString = JSON.stringify(item);
+      return regex.test(itemString);
+    })
 };
+
+const mapStateToProps = state => ({
+  items: Object.keys(state.Posts.filter).reduce((items, key) => {
+    const filter = state.Posts.filter[key];
+    if (!isEmpty(filter)) {
+      return filters[key]({ filter, items });
+    }
+
+    return items;
+  }, state.Posts.items)
+});
 
 const mapDispatchToProps = {
   fetchPosts
