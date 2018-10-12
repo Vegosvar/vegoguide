@@ -15,13 +15,19 @@ const FilterItem = ({ option, selected, onClick }) => {
     }
   ]);
 
-  const callback = onClick.bind(this, value);
+  const onClickHandler = onClick.bind(this, value);
+  const onKeyDownHandler = e => {
+    const code = e.which || e.keyCode;
+    if (code === 13 || code === 32) { // Enter or space
+      onClick(value);
+    }
+  };
 
   return (
     <div
       className={classes}
-      onClick={callback}
-      onKeyDown={callback}
+      onClick={onClickHandler}
+      onKeyDown={onKeyDownHandler}
       role="button"
       tabIndex={0}
     >
