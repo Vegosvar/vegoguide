@@ -2,4 +2,8 @@
 
 .row {
   @extend .columns;
+
+  &.gapless {
+    @extend .col-gapless;
+  }
 }
