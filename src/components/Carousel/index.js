@@ -3,9 +3,9 @@ import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronLeft,
-  faChevronRight,
+  faChevronRight
 } from '@fortawesome/free-solid-svg-icons';
-import { Image } from 'components';
+import { Image, Label } from 'components';
 import propTypes from './prop-types';
 import defaultProps from './default-props';
 import style from './style.module.scss';
@@ -19,7 +19,7 @@ const Carousel = ({ active, height, images }) => {
       name="carousel-radio"
       hidden="hidden"
       defaultChecked={index === active ? 'checked' : undefined}
-      key={index}
+      key={image.src}
     />
   ));
 
@@ -31,18 +31,18 @@ const Carousel = ({ active, height, images }) => {
       <figure
         className={classnames([
           style.carouselItem,
-          active === index ? style.noAnimation : undefined,
+          active === index ? style.noAnimation : undefined
         ])}
-        key={index}
+        key={image.src}
       >
         {images.length > 1 ? (
           <React.Fragment>
-            <label className={style.itemPrev} htmlFor={`slide-${prevIndex}`}>
+            <Label className={style.itemPrev} htmlFor={`slide-${prevIndex}`}>
               <FontAwesomeIcon icon={faChevronLeft} />
-            </label>
-            <label className={style.itemNext} htmlFor={`slide-${nextIndex}`}>
+            </Label>
+            <Label className={style.itemNext} htmlFor={`slide-${nextIndex}`}>
               <FontAwesomeIcon icon={faChevronRight} />
-            </label>
+            </Label>
           </React.Fragment>
         ) : (
           ''
@@ -52,21 +52,22 @@ const Carousel = ({ active, height, images }) => {
     );
   });
 
-  const navigation = images.length > 1 ? (
-    <div className={style.carouselNavigation}>
-      {images.map((image, index) => (
-        <label
-          className={style.carouselNavigationItem}
-          htmlFor={`slide-${index}`}
-          key={index}
-        >
-          {index}
-        </label>
-      ))}
-    </div>
-  ) : (
-    ''
-  );
+  const navigation =
+    images.length > 1 ? (
+      <div className={style.carouselNavigation}>
+        {images.map((image, index) => (
+          <Label
+            className={style.carouselNavigationItem}
+            htmlFor={`slide-${index}`}
+            key={image.src}
+          >
+            {index}
+          </Label>
+        ))}
+      </div>
+    ) : (
+      ''
+    );
   return (
     <div className={style.carousel} style={{ height }}>
       {inputs}
