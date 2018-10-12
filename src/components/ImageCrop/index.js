@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactImageCrop from 'react-image-crop';
+import propTypes from './prop-types';
 import style from './style.module.scss';
 
 class ImageCrop extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      src: props.src
-    };
+    // Bind methods to context
+    this.onChange = this.onChange.bind(this);
   }
 
   onChange(crop) {
@@ -21,7 +21,7 @@ class ImageCrop extends React.Component {
     return (
       <div className={style.wrapper}>
         <ReactImageCrop
-          src={this.state.src}
+          src={this.props.src}
           crop={this.state.crop}
           onChange={this.onChange}
         />
@@ -29,5 +29,7 @@ class ImageCrop extends React.Component {
     );
   }
 }
+
+ImageCrop.propTypes = propTypes;
 
 export default ImageCrop;

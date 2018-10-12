@@ -1,35 +1,34 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
+import propTypes from 'prop-types';
 import style from './style.module.scss';
 
 class ImageUpload extends React.Component {
   constructor(props) {
     super(props);
 
-    const { accept = [] } = props;
+    // Bind methods to context
+    this.onDrop = this.onDrop.bind(this)
 
-    this.onChange = props.onChange || function() {};
-
+    // Initialize state
     this.state = {
-      accept,
-      disablePreview: false,
       files: []
     };
   }
 
   onDrop(files) {
-    this.setState({
-      files: [...this.state.files, ...files]
-    });
+    this.setState(state => ({
+      files: [...state.files, ...files]
+    }));
 
-    this.onChange(this.state.files);
+    this.props.onChange(this.state.files);
   }
 
   render() {
     return (
       <div className={style.wrapper}>
         <Dropzone
-          onDrop={this.onDrop.bind(this)}
+          onDrop={this.onDrop}
           className={style.dropzone}
           activeClassName={style.active}
         />
@@ -37,5 +36,7 @@ class ImageUpload extends React.Component {
     );
   }
 }
+
+ImageUpload.propTypes = propTypes;
 
 export default ImageUpload;
