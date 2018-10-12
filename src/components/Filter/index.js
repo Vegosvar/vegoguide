@@ -2,8 +2,10 @@ import React from 'react';
 import { get } from 'lodash';
 import { FilterItem } from 'components';
 import style from './style.module.scss';
+import propTypes from './prop-types';
+import defaultProps from './default-props';
 
-const Filter = ({ options, values = [], onChange }) => {
+const Filter = ({ options, values, onChange }) => {
   const callback = value => {
     if (values.includes(value)) {
       const newValue = values.filter(filtervalue => filtervalue !== value);
@@ -25,5 +27,8 @@ const Filter = ({ options, values = [], onChange }) => {
 
   return <div className={style.filter}>{filterOptions}</div>;
 };
+
+Filter.propTypes = propTypes;
+Filter.defaultProps = defaultProps;
 
 export default Filter;
