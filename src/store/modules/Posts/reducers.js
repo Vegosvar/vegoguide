@@ -3,7 +3,17 @@ import { CREATE_POST, SET_FILTER_CATEGORIES } from './constants';
 
 const reducers = {
   [CREATE_POST](state, { post }) {
-    set(state, 'items', [...state.items, post]);
+    const index = state.items.findIndex(item => item._id === post._id);
+
+    const newItems = [...state.items];
+
+    if (index === -1) {
+      newItems.push(post);
+    } else {
+      newItems[index] = post;
+    }
+
+    set(state, 'items', newItems);
 
     return state;
   },
