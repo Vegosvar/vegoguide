@@ -34,5 +34,5 @@ export default {
       }).isRequired
     })
   ).isRequired,
-  label: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired
 };
