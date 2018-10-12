@@ -13,7 +13,7 @@ const Post = ({
     <div className={style.cover}>
       <Carousel
         active={images.findIndex(
-          image => image.original._id === cover.original._id
+          image => image._id === cover._id
         )}
         height="350px"
         images={images.map(image => ({
