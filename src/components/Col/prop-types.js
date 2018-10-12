@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 
 export default {
-  children: PropTypes.node
+  children: PropTypes.node,
+  size: PropTypes.number
 }
