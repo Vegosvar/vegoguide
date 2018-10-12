@@ -1,11 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Loadable from 'react-loadable';
 import { Loading } from 'components';
 import * as routes from './routes';
 
-const getRoutes = (routes = []) =>
-  routes.reduce(
+const getRoutes = (routesConfig = []) =>
+  routesConfig.reduce(
     (allRoutes, { routes: subRoutes = [], ...route }) => [
       ...allRoutes,
       <Route key={route.path} {...route} />,
@@ -24,4 +25,18 @@ const asyncRoutes = Object.keys(routes)
     })
   }));
 
-export default getRoutes(asyncRoutes);
+const transitionWrapper = ({ location }) => (
+  <TransitionGroup className="transition-group">
+    <CSSTransition
+      key={location.key || location.pathname}
+      timeout={{ enter: 300, exit: 300 }}
+      classNames="page"
+    >
+      <div className="route">
+        <Switch location={location}>{getRoutes(asyncRoutes)}</Switch>
+      </div>
+    </CSSTransition>
+  </TransitionGroup>
+);
+
+export default withRouter(transitionWrapper);
