@@ -9,7 +9,7 @@ const mapStateToProps = state => {
   if (state.Posts.filter.categories.length > 0) {
     props.items = state.Posts.items.filter(item =>
       item.categories.some(category =>
-        state.Posts.filter.categories.includes(category)
+        state.Posts.filter.categories.includes(category._id)
       )
     );
   } else {
