@@ -16,22 +16,31 @@ import style from './style.module.scss';
 class PostForm extends React.Component {
   constructor(props) {
     super(props);
+
+    // Bind methods to context
+    this.onChangeImages = this.onChangeImages.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+    // Initialize state
     this.state = {
       model: cloneDeep(props.post)
     };
   }
 
   onChange(key, value) {
-    const newModel = cloneDeep({ ...this.state.model });
-    set(newModel, key, value);
+    this.setState(state => {
+      const newModel = cloneDeep(state.model);
 
-    this.setState({
-      model: newModel
+      set(newModel, key, value);
+
+      return {
+        model: newModel
+      };
     });
   }
 
-  onChangeImages(key, files) {
-    console.log(files);
+  onChangeImages(files) {
+    console.log(files, this);
   }
 
   onSubmit() {
@@ -43,7 +52,7 @@ class PostForm extends React.Component {
       <FormGroup>
         <ImageUpload
           accept="image/jpeg, image/png"
-          onChange={this.onChangeImages.bind(this, 'images')}
+          onChange={this.onChangeImages}
         />
       </FormGroup>
     );
@@ -61,7 +70,7 @@ class PostForm extends React.Component {
 
     const submit = (
       <FormGroup>
-        <Button onClick={this.onSubmit.bind(this)}>Submit</Button>
+        <Button onClick={this.onSubmit}>Submit</Button>
       </FormGroup>
     );
 
