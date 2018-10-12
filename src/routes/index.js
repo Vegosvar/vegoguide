@@ -48,7 +48,7 @@ const transitionWrapper = ({ location }) => (
   <TransitionGroup className="transition-group">
     <CSSTransition
       key={location.key || location.pathname}
-      timeout={{ enter: 300, exit: 300 }}
+      timeout={{ enter: 750, exit: 750 }}
       classNames={getTransitionClassNames(location)}
     >
       <div className="route">
