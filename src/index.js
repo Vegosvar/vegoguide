@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import routes from './routes';
+import Routes from './routes';
 import store from './store';
 import App from './components/App';
 import './styles/index.scss';
 // import * as serviceWorker from './scripts/serviceWorker';
 
 ReactDOM.render(
-  <App routes={routes} store={store} />,
+  <App store={store}>
+    <Routes />
+  </App>,
   document.getElementById('root'),
 );
 
@@ -26,7 +28,9 @@ if (process.env.NODE_ENV !== 'production') {
       const NewRoutes = require('./routes').default;
 
       ReactDOM.render(
-        <NextApp routes={NewRoutes} store={store} />,
+        <NextApp store={store}>
+          <NewRoutes />
+        </NextApp>,
         document.getElementById('root'),
       );
     });

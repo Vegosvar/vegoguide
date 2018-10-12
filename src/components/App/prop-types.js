@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
 export default {
-  routes: PropTypes.array.isRequired,
+  children: PropTypes.node.isRequired,
   store: PropTypes.any.isRequired
 }
