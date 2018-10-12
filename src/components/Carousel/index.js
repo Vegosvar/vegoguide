@@ -6,9 +6,11 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Image } from 'components';
+import propTypes from './prop-types';
+import defaultProps from './default-props';
 import style from './style.module.scss';
 
-const Carousel = ({ active = 0, height = 'auto', images = [] }) => {
+const Carousel = ({ active, height, images }) => {
   const inputs = images.map((image, index) => (
     <input
       className={style.carouselInput}
@@ -73,5 +75,8 @@ const Carousel = ({ active = 0, height = 'auto', images = [] }) => {
     </div>
   );
 };
+
+Carousel.propTypes = propTypes;
+Carousel.defaultProps = defaultProps;
 
 export default Carousel;
