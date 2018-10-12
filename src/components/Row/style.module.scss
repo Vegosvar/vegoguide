@@ -1,9 +1,0 @@
-@import 'src/styles/index';
-
-.row {
-  @extend .columns;
-
-  &.gapless {
-    @extend .col-gapless;
-  }
-}

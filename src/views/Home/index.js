@@ -9,7 +9,7 @@ import { Container, Page, Row, Col } from 'components';
 const Home = () => (
   <Container>
     <Page>
-      <Row>
+      <Row gapless>
         <Col size={8}>
           <PostFilterCategories />
         </Col>
