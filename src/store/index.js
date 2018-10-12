@@ -1,7 +1,7 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import * as modules from './modules';
-// import middleware from './middleware';
+import { reduxDevTools } from './middleware';
 import generateReducers from './generate-reducers';
 import generateSagas from './generate-sagas';
 
@@ -16,7 +16,7 @@ const rootSaga = generateSagas(modules);
 // Create the store
 const store = createStore(
   combineReducers(reducers),
-  applyMiddleware(sagaMiddleware)
+  reduxDevTools(applyMiddleware(sagaMiddleware))
 );
 
 // Invoke sagas

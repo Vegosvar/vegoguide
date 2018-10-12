@@ -1,3 +1,1 @@
-import reduxDevTools from './redux-dev-tools';
-
-export default [reduxDevTools];
+export { default as reduxDevTools } from './redux-dev-tools';
