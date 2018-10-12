@@ -6,9 +6,7 @@ import propTypes from './prop-types';
 const PostCard = ({ cover, title, url }) => (
   <Link to={url}>
     <Image src={cover.thumbnail.url} alt={title} height="200px" width="100%" />
-    <Card>
-      <div>{title}</div>
-    </Card>
+    <Card>{title}</Card>
   </Link>
 );
 
