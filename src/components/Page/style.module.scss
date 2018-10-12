@@ -1,7 +1,5 @@
 @import 'src/styles/index';
 
 .page {
-  @extend .card;
-
   border-radius: $border-radius;
 }
