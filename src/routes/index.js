@@ -25,12 +25,31 @@ const asyncRoutes = Object.keys(routes)
     })
   }));
 
+const getTransitionClassNames = location => {
+  if (location.pathname === '/') {
+    return {
+      enter: 'slide-in-right-enter',
+      enterActive: 'slide-in-right-enter-active',
+      exit: 'slide-in-left-exit',
+      exitActive: 'slide-in-left-exit-active'
+    };
+
+  }
+
+  return {
+    enter: 'slide-in-left-enter',
+    enterActive: 'slide-in-left-enter-active',
+    exit: 'slide-in-right-exit',
+    exitActive: 'slide-in-right-exit-active'
+  };
+};
+
 const transitionWrapper = ({ location }) => (
   <TransitionGroup className="transition-group">
     <CSSTransition
       key={location.key || location.pathname}
       timeout={{ enter: 300, exit: 300 }}
-      classNames="page"
+      classNames={getTransitionClassNames(location)}
     >
       <div className="route">
         <Switch location={location}>{getRoutes(asyncRoutes)}</Switch>
