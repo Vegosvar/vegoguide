@@ -51,7 +51,7 @@ const transitionWrapper = ({ location }) => (
       timeout={{ enter: 750, exit: 750 }}
       classNames={getTransitionClassNames(location)}
     >
-      <div className="route">
+      <div className="transition-group-route-wrapper">
         <Switch location={location}>{getRoutes(asyncRoutes)}</Switch>
       </div>
     </CSSTransition>
