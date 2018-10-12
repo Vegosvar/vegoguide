@@ -1,7 +1,8 @@
 const state = {
   items: [],
   filter: {
-    categories: []
+    categories: [],
+    search: ''
   },
   sync: {
     update: [],

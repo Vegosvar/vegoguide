@@ -1,5 +1,9 @@
 import { set } from 'lodash';
-import { CREATE_POST, SET_FILTER_CATEGORIES } from './constants';
+import {
+  CREATE_POST,
+  SET_FILTER_CATEGORIES,
+  SET_FILTER_SEARCH
+} from './constants';
 
 const reducers = {
   [CREATE_POST](state, { post }) {
@@ -19,6 +23,11 @@ const reducers = {
   },
   [SET_FILTER_CATEGORIES](state, { ids }) {
     set(state, 'filter.categories', ids);
+
+    return state;
+  },
+  [SET_FILTER_SEARCH](state, { value }) {
+    set(state, 'filter.search', value);
 
     return state;
   }

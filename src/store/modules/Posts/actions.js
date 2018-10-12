@@ -2,7 +2,8 @@ import {
   CREATE_POST,
   FETCH_POSTS,
   UPDATE_POST,
-  SET_FILTER_CATEGORIES
+  SET_FILTER_CATEGORIES,
+  SET_FILTER_SEARCH
 } from './constants';
 
 export const createPost = post => ({
@@ -24,4 +25,9 @@ export const updatePost = post => ({
 export const setFilterCategories = ids => ({
   type: SET_FILTER_CATEGORIES,
   ids
+});
+
+export const setFilterSearch = value => ({
+  type: SET_FILTER_SEARCH,
+  value
 });
