@@ -3,8 +3,8 @@ import classnames from 'classnames';
 import defaultProps from './default-props';
 import propTypes from './prop-types';
 
-const Col = ({ children, size, ...props }) => {
-  const classNames = classnames(['column', `col-${size}`]);
+const Col = ({ className, children, size, ...props }) => {
+  const classNames = classnames(['column', `col-${size}`, className]);
 
   return (
     <div className={classNames} {...props}>
