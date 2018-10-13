@@ -5,7 +5,7 @@ import anime from 'animejs';
 import defaultProps from './default-props';
 import propTypes from './prop-types';
 
-const onElementAppear = (el, index) => {
+const onElementAppear = (el, index) =>
   anime({
     targets: el,
     opacity: [0, 1],
@@ -13,9 +13,8 @@ const onElementAppear = (el, index) => {
     duration: 150,
     easing: 'easeOutSine'
   });
-};
 
-const onElementExit = (el, index, removeElement) => {
+const onElementExit = (el, index, removeElement) =>
   anime({
     targets: el,
     opacity: 0,
@@ -24,7 +23,6 @@ const onElementExit = (el, index, removeElement) => {
     delay: index * 20,
     easing: 'easeOutSine'
   });
-};
 
 const PostCardGrid = ({ items }) => (
   <Flipper flipKey={items.length}>
