@@ -5,8 +5,6 @@ import anime from 'animejs';
 import defaultProps from './default-props';
 import propTypes from './prop-types';
 
-/* eslint-disable */
-
 const onElementAppear = (el, index) => {
   anime({
     targets: el,
