@@ -14,8 +14,8 @@ const Home = () => (
           <Col size={8}>
             <PostFilterCategories />
           </Col>
-          <Col size={4}>
-            <PostFilterSearch />
+          <Col size={4} className="d-flex col-ml-auto flex-centered pr-2">
+            <PostFilterSearch placeholder="Sök..." />
           </Col>
         </Row>
       </Card>
