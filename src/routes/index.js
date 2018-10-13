@@ -33,8 +33,8 @@ const onEnter = location => el => {
     targets: el,
     opacity: [0, 1],
     translateX: [`${100 * direction}%`, 0],
-    duration: 400,
-    easing: 'easeInOutSine'
+    duration: 600,
+    easing: [0.4, 0.75, 0.5, 1]
   });
 };
 
@@ -44,8 +44,8 @@ const onExit = location => el => {
     targets: el,
     opacity: 0,
     translateX: [0, `${100 * direction}%`],
-    duration: 400,
-    easing: 'easeInOutSine'
+    duration: 600,
+    easing: [0.4, 0.75, 0.5, 1]
   });
 };
 
@@ -53,7 +53,7 @@ const transitionWrapper = ({ location }) => (
   <TransitionGroup className="transition-group">
     <Transition
       key={location.key || location.pathname}
-      timeout={400}
+      timeout={600}
       onEnter={onEnter(location)}
       onExit={onExit(location)}
     >
