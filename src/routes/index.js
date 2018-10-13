@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { TransitionGroup, Transition } from 'react-transition-group';
+import anime from 'animejs';
 import Loadable from 'react-loadable';
 import { Loading } from 'components';
 import * as routes from './routes';
@@ -25,35 +26,41 @@ const asyncRoutes = Object.keys(routes)
     })
   }));
 
-const getTransitionClassNames = location => {
-  if (location.pathname === '/') {
-    return {
-      enter: 'slide-in-right-enter',
-      enterActive: 'slide-in-right-enter-active',
-      exit: 'slide-in-left-exit',
-      exitActive: 'slide-in-left-exit-active'
-    };
-  }
+const onEnter = location => el => {
+  const direction = location.pathname === '/' ? -1 : 1;
 
-  return {
-    enter: 'slide-in-left-enter',
-    enterActive: 'slide-in-left-enter-active',
-    exit: 'slide-in-right-exit',
-    exitActive: 'slide-in-right-exit-active'
-  };
+  anime({
+    targets: el,
+    opacity: [0, 1],
+    translateX: [`${100 * direction}%`, 0],
+    duration: 400,
+    easing: 'easeInOutSine'
+  });
+};
+
+const onExit = location => el => {
+  const direction = location.pathname === '/' ? -1 : 1;
+  anime({
+    targets: el,
+    opacity: 0,
+    translateX: [0, `${100 * direction}%`],
+    duration: 400,
+    easing: 'easeInOutSine'
+  });
 };
 
 const transitionWrapper = ({ location }) => (
   <TransitionGroup className="transition-group">
-    <CSSTransition
+    <Transition
       key={location.key || location.pathname}
-      timeout={{ enter: 750, exit: 750 }}
-      classNames={getTransitionClassNames(location)}
+      timeout={400}
+      onEnter={onEnter(location)}
+      onExit={onExit(location)}
     >
       <div className="transition-group-route-wrapper">
         <Switch location={location}>{getRoutes(asyncRoutes)}</Switch>
       </div>
-    </CSSTransition>
+    </Transition>
   </TransitionGroup>
 );
 
