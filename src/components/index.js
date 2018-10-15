@@ -22,3 +22,5 @@ export { default as PostForm } from './PostForm';
 export { default as PostMap } from './PostMap';
 export { default as PostMapMarker } from './PostMapMarker';
 export { default as Row } from './Row';
+// I don't know why but when exporting the Hero component in its alphabetical position it causes the build to fail
+export { default as Hero } from './Hero';
