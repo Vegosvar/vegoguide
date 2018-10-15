@@ -19,4 +19,6 @@ export { default as Post } from './Post';
 export { default as PostCard } from './PostCard';
 export { default as PostCardGrid } from './PostCardGrid';
 export { default as PostForm } from './PostForm';
+export { default as PostMap } from './PostMap';
+export { default as PostMapMarker } from './PostMapMarker';
 export { default as Row } from './Row';
