@@ -1,27 +1,31 @@
 import React from 'react';
 import {
   PostCardGrid,
-  PostFilterCategories,
-  PostFilterSearch
+  PostFilterCategories
 } from 'containers';
-import { Card, Container, Page, Row, Col } from 'components';
+import { Card, Col, Container, Hero, Page, Row } from 'components';
+import style from './style.module.scss';
 
 const Home = () => (
-  <Container>
-    <Page>
-      <Card>
-        <Row gapless>
-          <Col size={8}>
-            <PostFilterCategories />
-          </Col>
-          <Col size={4} className="d-flex col-ml-auto flex-centered pr-2">
-            <PostFilterSearch placeholder="Sök..." />
-          </Col>
-        </Row>
-      </Card>
-      <PostCardGrid />
-    </Page>
-  </Container>
+  <div>
+    <div className={style.heroWrapper}>
+      <Container>
+        <Hero />
+      </Container>
+    </div>
+    <Container>
+      <Page>
+        <Card className="mb-2">
+          <Row>
+            <Col>
+              <PostFilterCategories />
+            </Col>
+          </Row>
+        </Card>
+        <PostCardGrid />
+      </Page>
+    </Container>
+  </div>
 );
 
 export default Home;
