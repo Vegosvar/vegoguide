@@ -4,9 +4,9 @@ import propTypes from './prop-types';
 import style from './style.module.scss';
 
 const Button = ({ className, children, ...props }) => (
-  <div className={classnames([style.button, className])} {...props}>
+  <button className={classnames([style.button, className])} {...props}>
     {children}
-  </div>
+  </button>
 );
 
 Button.propTypes = propTypes;
