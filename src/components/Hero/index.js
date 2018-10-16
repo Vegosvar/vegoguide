@@ -3,16 +3,14 @@ import { PostFilterSearch } from 'containers';
 import { Container } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { ReactComponent as Logo } from './logo.svg';
 import style from './style.module.scss';
-import logo from './logo.svg';
 
 const Hero = () => (
   <div className={style.heroWrapper}>
     <Container>
       <div className={style.hero}>
-        <div className={style.logo}>
-          <img alt="logo" src={logo} />
-        </div>
+        <Logo />
         <div className={style.searchWrapper}>
           <PostFilterSearch className={style.search} placeholder="Sök..." />
           <div className={style.searchIconWrapper}>
