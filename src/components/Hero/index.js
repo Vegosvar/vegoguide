@@ -3,10 +3,11 @@ import { PostFilterCategories, PostFilterSearch } from 'containers';
 import { Container } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { withI18n } from 'react-i18next';
 import { ReactComponent as Logo } from './logo.svg';
 import style from './style.module.scss';
 
-const Hero = () => (
+const Hero = ({ t }) => (
   <div className={style.heroWrapper}>
     <Container>
       <div className={style.hero}>
@@ -18,9 +19,8 @@ const Hero = () => (
           </div>
         </div>
         <div className={style.lead}>
-          <span>
-            Sök veganska restauranger, butiker, produkter &amp; recept
-          </span>
+          <span>{t('Search vegan restaurants and shops')}</span>
+        </div>
         <div className={style.categoriesWrapper}>
           <PostFilterCategories />
         </div>
@@ -29,4 +29,4 @@ const Hero = () => (
   </div>
 );
 
-export default Hero;
+export default withI18n()(Hero);
