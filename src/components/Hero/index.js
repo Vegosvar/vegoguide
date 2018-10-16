@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostFilterSearch } from 'containers';
+import { PostFilterCategories, PostFilterSearch } from 'containers';
 import { Container } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -21,6 +21,8 @@ const Hero = () => (
           <span>
             Sök veganska restauranger, butiker, produkter &amp; recept
           </span>
+        <div className={style.categoriesWrapper}>
+          <PostFilterCategories />
         </div>
       </div>
     </Container>
