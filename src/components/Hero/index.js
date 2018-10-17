@@ -3,7 +3,7 @@ import { PostFilterCategories, PostFilterSearch } from 'containers';
 import { Container } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { withI18n } from 'react-i18next';
+import { withNamespaces } from 'react-i18next';
 import { ReactComponent as Logo } from './logo.svg';
 import style from './style.module.scss';
 
@@ -29,4 +29,4 @@ const Hero = ({ t }) => (
   </div>
 );
 
-export default withI18n()(Hero);
+export default withNamespaces()(Hero);
