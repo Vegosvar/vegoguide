@@ -1,0 +1,7 @@
+@import 'src/styles/variables';
+
+.navbar {
+  background: $primary-color;
+  border-bottom: 2px solid $secondary-color;
+  box-shadow: 0 0 1px 0 $shadow-color;
+}
