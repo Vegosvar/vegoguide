@@ -8,7 +8,7 @@ import propTypes from './prop-types';
 const Image = ({ alt, height, fallback, src, width, ...props }) => (
   <Img
     alt={alt}
-    className={classnames(['img-responsive', 'img-fit-cover', 's-rounded'])}
+    className={classnames(['img-responsive', 'img-fit-cover'])}
     src={src}
     unloader={fallback}
     loader={<Loading height={height} />}
