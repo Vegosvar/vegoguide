@@ -12,7 +12,8 @@ const FilterItem = ({ className, option, selected, onChange, ...props }) => {
   const onClickHandler = onChange.bind(this, value);
   const onKeyDownHandler = e => {
     const code = e.which || e.keyCode;
-    if (code === 13 || code === 32) { // Enter or space
+    if (code === 13 || code === 32) {
+      // Enter or space
       onChange(value);
     }
   };
