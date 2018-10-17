@@ -1,5 +1,10 @@
 import { set } from 'lodash';
-import { SET_SYNCED, SET_SYNCING, SET_SYNCED_DATE } from './constants';
+import {
+  SET_LANGUAGE,
+  SET_SYNCED_DATE,
+  SET_SYNCED,
+  SET_SYNCING
+} from './constants';
 
 const reducers = {
   [SET_SYNCING](state, { value }) {
@@ -17,6 +22,11 @@ const reducers = {
 
     return state;
   },
+  [SET_LANGUAGE](state, { language }) {
+    set(state, 'language', language);
+
+    return state;
+  }
 };
 
 export default reducers;
