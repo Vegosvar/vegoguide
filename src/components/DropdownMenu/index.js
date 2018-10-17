@@ -6,6 +6,7 @@ import {
   DropdownMenuToggle,
   Menu
 } from 'components';
+import propTypes from './prop-types';
 
 const DropdownMenu = ({
   className,
@@ -49,5 +50,7 @@ const DropdownMenu = ({
     </Dropdown>
   );
 };
+
+DropdownMenu.propTypes = propTypes;
 
 export default DropdownMenu;
