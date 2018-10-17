@@ -28,5 +28,7 @@ export { default as PostForm } from './PostForm';
 export { default as PostMap } from './PostMap';
 export { default as PostMapMarker } from './PostMapMarker';
 export { default as Row } from './Row';
-// I don't know why but when exporting the Hero component in its alphabetical position it causes the build to fail
+
+// TODO: Move these components into views/containers. The reason they can't be exported in their alphabetical order is due to them using containers
 export { default as Hero } from './Hero';
+export { default as Navbar } from './Navbar';
