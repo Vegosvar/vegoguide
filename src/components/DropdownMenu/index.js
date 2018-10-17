@@ -14,6 +14,7 @@ const DropdownMenu = ({
   label,
   options,
   multiple,
+  right,
   value
 }) => {
   const onChangeItem = newValue => {
@@ -44,7 +45,7 @@ const DropdownMenu = ({
   ));
 
   return (
-    <Dropdown className={className}>
+    <Dropdown right className={className}>
       <DropdownMenuToggle>{label}</DropdownMenuToggle>
       <Menu>{menuItems}</Menu>
     </Dropdown>
