@@ -1,6 +1,7 @@
 import Api from 'api';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { CREATE_POST, FETCH_POSTS } from '../constants';
+import { FETCH_POSTS } from '../constants';
+import { createPost } from '../actions';
 
 function* worker({ params, settings } = {}) {
   // Call the API and fetch the posts
@@ -10,14 +11,7 @@ function* worker({ params, settings } = {}) {
   const { data = [] } = yield response.json();
 
   // Loop over posts and put them in the store
-  yield all(
-    data.map(post =>
-      put({
-        type: CREATE_POST,
-        post
-      })
-    )
-  );
+  yield all(data.map(post => put(createPost(post))));
 }
 
 function* watcher() {
