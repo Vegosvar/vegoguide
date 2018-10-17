@@ -1,6 +1,7 @@
 import React from 'react';
 import { get } from 'lodash';
 import classnames from 'classnames';
+import { Button } from 'components';
 import propTypes from './prop-types';
 import style from './style.module.scss';
 
@@ -25,7 +26,7 @@ const FilterItem = ({ className, option, selected, onChange, ...props }) => {
   ]);
 
   return (
-    <div
+    <Button
       className={classes}
       onClick={onClickHandler}
       onKeyDown={onKeyDownHandler}
@@ -34,7 +35,7 @@ const FilterItem = ({ className, option, selected, onChange, ...props }) => {
       {...props}
     >
       {label}
-    </div>
+    </Button>
   );
 };
 
