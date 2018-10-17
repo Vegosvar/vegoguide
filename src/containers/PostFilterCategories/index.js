@@ -16,7 +16,8 @@ const mapStateToProps = state => ({
       label: i18n.t(`postCategories:${category.title}`),
       value: category._id
     })),
-  values: state.Posts.filter.categories
+  value: state.Posts.filter.categories,
+  multiple: true
 });
 
 const mapDispatchToProps = {
