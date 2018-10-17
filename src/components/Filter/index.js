@@ -17,8 +17,8 @@ const Filter = ({
   const onChangeItem = newValue => {
     if (multiple) {
       if (value.includes(newValue)) {
-        const newValue = value.filter(item => item !== newValue);
-        return onChange(newValue);
+        const filteredValue = value.filter(item => item !== newValue);
+        return onChange(filteredValue);
       }
 
       return onChange([...value, newValue]);
