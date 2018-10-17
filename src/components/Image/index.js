@@ -5,13 +5,7 @@ import classnames from 'classnames';
 import defaultProps from './default-props';
 import propTypes from './prop-types';
 
-const Image = ({
-  alt,
-  height,
-  fallback,
-  src,
-  width
-}) => (
+const Image = ({ alt, height, fallback, src, width, ...props }) => (
   <Img
     alt={alt}
     className={classnames(['img-responsive', 'img-fit-cover', 's-rounded'])}
@@ -22,6 +16,7 @@ const Image = ({
       height,
       width
     }}
+    {...props}
   />
 );
 

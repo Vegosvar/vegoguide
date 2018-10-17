@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import propTypes from './prop-types';
 import style from './style.module.scss';
 
-const FilterItem = ({ option, selected, onChange }) => {
+const FilterItem = ({ className, option, selected, onChange, ...props }) => {
   const value = get(option, 'value', option);
   const label = get(option, 'label', option);
 
@@ -31,6 +31,7 @@ const FilterItem = ({ option, selected, onChange }) => {
       onKeyDown={onKeyDownHandler}
       role="button"
       tabIndex={0}
+      {...props}
     >
       {label}
     </div>
