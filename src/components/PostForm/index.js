@@ -11,7 +11,6 @@ import {
   Label
 } from 'components';
 import PropTypes from './prop-types';
-import style from './style.module.scss';
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -75,7 +74,7 @@ class PostForm extends React.Component {
     );
 
     return (
-      <form className={style.form} noValidate>
+      <form noValidate>
         <Row>
           <Col>{images}</Col>
         </Row>

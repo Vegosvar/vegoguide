@@ -1,13 +1,13 @@
-@import 'src/styles/index';
+@import 'src/styles/variables';
 
 .post {
   .details {
-    background: $primary-color-dark;
+    background: $primary-color;
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
-    color: $secondary-color-dark;
+    color: $secondary-color;
 
-    padding: $control-padding-y;
+    padding: 0.25rem;
   }
 
   .address,

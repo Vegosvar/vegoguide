@@ -10,7 +10,7 @@ const Loading = ({ height } = {}) => (
       height,
     }}
   >
-    <div className={style.loader} />
+    <div className="loading loading-lg" />
   </div>
 );
 

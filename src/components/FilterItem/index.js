@@ -1,19 +1,12 @@
 import React from 'react';
 import { get } from 'lodash';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import propTypes from './prop-types';
 import style from './style.module.scss';
 
 const FilterItem = ({ option, selected, onChange }) => {
   const value = get(option, 'value', option);
   const label = get(option, 'label', option);
-
-  const classes = classNames([
-    style.item,
-    {
-      [style.selected]: selected
-    }
-  ]);
 
   const onClickHandler = onChange.bind(this, value);
   const onKeyDownHandler = e => {
@@ -22,6 +15,14 @@ const FilterItem = ({ option, selected, onChange }) => {
       onChange(value);
     }
   };
+
+  const classes = classnames([
+    className,
+    style.item,
+    {
+      'btn-success': selected
+    }
+  ]);
 
   return (
     <div

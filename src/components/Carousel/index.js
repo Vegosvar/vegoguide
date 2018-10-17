@@ -13,7 +13,7 @@ import style from './style.module.scss';
 const Carousel = ({ active, height, images }) => {
   const inputs = images.map((image, index) => (
     <input
-      className={style.carouselInput}
+      className="carousel-locator"
       id={`slide-${index}`}
       type="radio"
       name="carousel-radio"
@@ -30,17 +30,17 @@ const Carousel = ({ active, height, images }) => {
     return (
       <figure
         className={classnames([
-          style.carouselItem,
+          'carousel-item',
           active === index ? style.noAnimation : undefined
         ])}
         key={image.src}
       >
         {images.length > 1 ? (
           <React.Fragment>
-            <Label className={style.itemPrev} htmlFor={`slide-${prevIndex}`}>
+            <Label className="item-prev" htmlFor={`slide-${prevIndex}`}>
               <FontAwesomeIcon icon={faChevronLeft} />
             </Label>
-            <Label className={style.itemNext} htmlFor={`slide-${nextIndex}`}>
+            <Label className="item-next" htmlFor={`slide-${nextIndex}`}>
               <FontAwesomeIcon icon={faChevronRight} />
             </Label>
           </React.Fragment>
@@ -54,10 +54,10 @@ const Carousel = ({ active, height, images }) => {
 
   const navigation =
     images.length > 1 ? (
-      <div className={style.carouselNavigation}>
+      <div className="carousel-nav">
         {images.map((image, index) => (
           <Label
-            className={style.carouselNavigationItem}
+            className="nav-item"
             htmlFor={`slide-${index}`}
             key={image.src}
           >
@@ -69,9 +69,9 @@ const Carousel = ({ active, height, images }) => {
       ''
     );
   return (
-    <div className={style.carousel} style={{ height }}>
+    <div className="carousel" style={{ height }}>
       {inputs}
-      <div className={style.carouselContainer}>{items}</div>
+      <div className="carousel-container">{items}</div>
       {navigation}
     </div>
   );

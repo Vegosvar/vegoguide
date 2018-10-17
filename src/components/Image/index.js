@@ -1,9 +1,9 @@
 import React from 'react';
 import Img from 'react-image';
 import { Loading } from 'components';
+import classnames from 'classnames';
 import defaultProps from './default-props';
 import propTypes from './prop-types';
-import style from './style.module.scss';
 
 const Image = ({
   alt,
@@ -14,7 +14,7 @@ const Image = ({
 }) => (
   <Img
     alt={alt}
-    className={style.image}
+    className={classnames(['img-responsive', 'img-fit-cover', 's-rounded'])}
     src={src}
     unloader={fallback}
     loader={<Loading height={height} />}

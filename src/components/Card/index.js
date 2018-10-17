@@ -2,8 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import propTypes from './prop-types';
 
-const Card = ({ className, children }) => (
-  <div className={classnames([className, 'card'])}>{children}</div>
+const Card = ({ className, children, ...props }) => (
+  <div className={classnames([className, 'card'])} {...props}>
+    {children}
+  </div>
 );
 
 Card.propTypes = propTypes;

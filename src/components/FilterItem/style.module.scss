@@ -1,8 +1,6 @@
-@import 'src/styles/index';
+@import 'src/styles/variables';
 
 .item {
-  @extend .btn;
-
   cursor: pointer;
   margin: 0.25rem 0.125rem;
 
@@ -12,9 +10,5 @@
 
   &:last-child {
     margin-right: 0.4rem;
-  }
-
-  &.selected {
-    @extend .btn, .btn-success;
   }
 }

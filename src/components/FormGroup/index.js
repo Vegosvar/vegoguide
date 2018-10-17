@@ -1,9 +1,11 @@
 import React from 'react';
+import classnames from 'classnames';
 import propTypes from './prop-types';
-import style from './style.module.scss';
 
-const FormGroup = ({ children }) => (
-  <div className={style.formGroup}>{children}</div>
+const FormGroup = ({ className, children, ...props }) => (
+  <div className={classnames(['form-group', className])} {...props}>
+    {children}
+  </div>
 );
 
 FormGroup.propTypes = propTypes;

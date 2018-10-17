@@ -1,13 +1,16 @@
 import React from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import propTypes from './prop-types';
 import style from './style.module.scss';
 
-const Container = ({ children }) => {
-  const classes = classNames([style.container, style.lg]);
-
-  return <div className={classes}>{children}</div>;
-};
+const Container = ({ className, children, ...props }) => (
+  <div
+    className={classnames(['container', 'grid-lg', style.container, className])}
+    {...props}
+  >
+    {children}
+  </div>
+);
 
 Container.propTypes = propTypes;
 

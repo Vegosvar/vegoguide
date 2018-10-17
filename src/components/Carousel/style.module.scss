@@ -1,43 +1,4 @@
-@import 'src/styles/index';
-
-.carousel {
-  @extend .carousel;
-}
-
-.carouselContainer {
-  @extend .carousel-container;
-}
-
-.carouselInput {
-  @extend .carousel-locator;
-}
-
-.carouselItem {
-  @extend .carousel-item;
-}
-
-.carouselNavigation {
-  @extend .carousel-nav;
-}
-
-.carouselNavigationItem {
-  @extend .nav-item;
-}
-
-.carouselItemPrev,
-.carouselItemNext {
-  @extend .btn;
-  @extend .btn-action;
-  @extend .btn-lg;
-}
-
-.carouselItemPrev {
-  @extend .item-prev;
-}
-
-.carouselItemNext {
-  @extend .item-next;
-}
+@import 'src/styles/variables';
 
 .noAnimation {
   animation: unset !important;
