@@ -7,7 +7,7 @@ export default {
       value: PropTypes.string.isRequired
     })
   ),
-  value: PropTypes.oneOf([
+  value: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.string
   ]),
