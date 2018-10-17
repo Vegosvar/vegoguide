@@ -21,6 +21,6 @@ const Image = ({ alt, height, fallback, src, width, ...props }) => (
 );
 
 Image.propTypes = propTypes;
-Image.defaultProps = defaultProps
+Image.defaultProps = defaultProps;
 
 export default Image;

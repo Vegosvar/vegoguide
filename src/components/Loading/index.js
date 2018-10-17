@@ -7,14 +7,14 @@ const Loading = ({ height } = {}) => (
   <div
     className={style.wrapper}
     style={{
-      height,
+      height
     }}
   >
     <div className="loading loading-lg" />
   </div>
 );
 
-Loading.defaultProps = defaultProps
-Loading.propTypes = propTypes
+Loading.defaultProps = defaultProps;
+Loading.propTypes = propTypes;
 
 export default Loading;
