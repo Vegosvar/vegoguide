@@ -1,7 +1,15 @@
 @import 'src/styles/variables';
 
 .navbar {
+  align-items: center;
   background: $primary-color;
   border-bottom: 2px solid $secondary-color;
   box-shadow: 0 0 1px 0 $shadow-color;
+  display: flex;
+  padding: 0.5rem;
+
+  .pullRight {
+    margin-left: auto;
+    margin-right: 0.5rem;
+  }
 }
