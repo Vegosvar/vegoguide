@@ -6,7 +6,7 @@ import style from './style.module.scss';
 export default ({ className }) => (
   <div className={classnames('navbar', style.navbar, className)}>
     <div className={style.pullRight}>
-      <LanguageDropdownMenu />
+      <LanguageDropdownMenu right />
     </div>
   </div>
 );
