@@ -3,7 +3,7 @@ import i18n from 'i18n';
 import { DropdownMenu } from 'components';
 import { changeLanguage } from 'store/modules/App/actions';
 
-const mapStateToProps = (state, { url }) => ({
+const mapStateToProps = state => ({
   options: state.App.languages.map(({ label, value }) => ({
     label: i18n.t(`languages:${label}`),
     value
