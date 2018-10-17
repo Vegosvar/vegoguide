@@ -1,21 +1,41 @@
 import React from 'react';
 import { get } from 'lodash';
+import classnames from 'classnames';
 import { FilterItem } from 'components';
 import style from './style.module.scss';
 import propTypes from './prop-types';
 import defaultProps from './default-props';
 
-const Filter = ({ options, values, onChange }) => {
-  const onChangeItem = value => {
-    if (values.includes(value)) {
-      const newValue = values.filter(filtervalue => filtervalue !== value);
-      return onChange(newValue);
+const Filter = ({
+  className,
+  options,
+  multiple,
+  value,
+  onChange,
+  ...props
+}) => {
+  const onChangeItem = newValue => {
+    if (multiple) {
+      if (value.includes(newValue)) {
+        const newValue = value.filter(item => item !== newValue);
+        return onChange(newValue);
+      }
+
+      return onChange([...value, newValue]);
     }
 
-    return onChange([...values, value]);
+    if (value === newValue) {
+      return onChange(undefined);
+    }
+
+    return onChange(newValue);
   };
 
-  const isSelected = option => values.includes(get(option, 'value', option));
+  const isSelected = option => {
+    const optionValue = get(option, 'value', option);
+    return multiple ? value.includes(optionValue) : value === optionValue;
+  };
+
   const filterOptions = options.map((option, index) => (
     <FilterItem
       key={index}
@@ -25,7 +45,11 @@ const Filter = ({ options, values, onChange }) => {
     />
   ));
 
-  return <div className={style.filter}>{filterOptions}</div>;
+  return (
+    <div className={classnames([style.filter, className])} {...props}>
+      {filterOptions}
+    </div>
+  );
 };
 
 Filter.propTypes = propTypes;

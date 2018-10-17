@@ -2,13 +2,15 @@ import PropTypes from 'prop-types';
 
 export default {
   options: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired
     })
   ),
-  values: PropTypes.arrayOf(
+  value: PropTypes.oneOf([
+    PropTypes.arrayOf(PropTypes.string),
     PropTypes.string
-  ),
+  ]),
+  multiple: PropTypes.bool,
   onChange: PropTypes.func.isRequired
 };
