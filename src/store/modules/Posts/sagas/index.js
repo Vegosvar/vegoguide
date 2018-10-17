@@ -1,4 +1,2 @@
-import FETCH_POSTS from './fetch-posts';
-import UPDATE_POST from './update-post';
-
-export default { FETCH_POSTS, UPDATE_POST };
+export { default as FETCH_POSTS } from './fetch-posts';
+export { default as UPDATE_POST } from './update-post';
