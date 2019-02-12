@@ -34,18 +34,19 @@ const onEnter = location => el => {
     opacity: [0, 1],
     translateX: [`${100 * direction}%`, 0],
     duration: 600,
-    easing: [0.4, 0.75, 0.5, 1]
+    easing: 'cubicBezier(0.4, 0.75, 0.5, 1)'
   });
 };
 
 const onExit = location => el => {
   const direction = location.pathname === '/' ? -1 : 1;
+
   anime({
     targets: el,
     opacity: 0,
     translateX: [0, `${100 * direction}%`],
     duration: 600,
-    easing: [0.4, 0.75, 0.5, 1]
+    easing: 'cubicBezier(0.4, 0.75, 0.5, 1)'
   });
 };
 
