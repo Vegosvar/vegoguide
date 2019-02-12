@@ -1,12 +1,12 @@
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import { reactI18nextModule } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 import * as sv from './sv';
 
 // TODO: Yay, first TODO! Move the locales to the backend and fetch and cache them
 
 i18n
-  .use(reactI18nextModule)
+  .use(initReactI18next)
   .use(LanguageDetector)
   .init({
     resources: {
