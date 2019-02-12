@@ -27,7 +27,7 @@ const onElementExit = (el, index, removeElement) =>
 const PostCardGrid = ({ items }) => (
   <Flipper flipKey={items.length}>
     <Row>
-      {items.map((item, i) => (
+      {items.map(item => (
         <Flipped
           flipId={item._id}
           onDelayedAppear={onElementAppear}
