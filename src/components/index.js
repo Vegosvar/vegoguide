@@ -13,6 +13,7 @@ export { default as DropdownMenuToggle } from './DropdownMenuToggle';
 export { default as Filter } from './Filter';
 export { default as FilterItem } from './FilterItem';
 export { default as FormGroup } from './FormGroup';
+export { default as Hero } from './Hero';
 export { default as Image } from './Image';
 export { default as ImageCrop } from './ImageCrop';
 export { default as ImageUpload } from './ImageUpload';
@@ -31,5 +32,4 @@ export { default as PostMapMarker } from './PostMapMarker';
 export { default as Row } from './Row';
 
 // TODO: Move these components into views/containers. The reason they can't be exported in their alphabetical order is due to them using containers
-export { default as Hero } from './Hero';
 export { default as Navbar } from './Navbar';

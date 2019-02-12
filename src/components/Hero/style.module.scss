@@ -10,40 +10,5 @@
     height: 35vh;
     justify-content: center;
     padding: 15px;
-
-    .categoriesWrapper {
-      padding: 10px;
-    }
-
-    .searchWrapper {
-      align-items: center;
-      display: flex;
-      max-width: 560px;
-      padding: 16px 16px 8px;
-      width: 100%;
-
-      .search {
-        border: 0;
-        border-bottom-left-radius: 0.1rem;
-        border-top-left-radius: 0.1rem;
-        font-size: 18px;
-        font-weight: 400;
-        padding: 24px;
-      }
-
-      .searchIconWrapper {
-        background-color: $secondary-color;
-        border-bottom-right-radius: 0.1rem;
-        border-top-right-radius: 0.1rem;
-        color: $tertiary-color;
-        margin-left: -1px;
-        padding: 12px 16px;
-      }
-    }
-
-    .lead {
-      color: $secondary-color;
-      font-size: 20px;
-    }
   }
 }
