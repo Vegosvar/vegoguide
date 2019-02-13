@@ -6,6 +6,8 @@ const state = {
     categories: [],
     search: ''
   },
+  skip: 0,
+  limit: 24,
   sync: {
     update: [],
     remove: []

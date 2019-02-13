@@ -11,7 +11,9 @@ const getFetchOptions = state => {
   const { categories, search } = state.Posts.filter;
 
   const params = {
-    query: {}
+    query: {},
+    limit: state.Posts.limit,
+    skip: state.Posts.skip
   };
 
   if (search) {
