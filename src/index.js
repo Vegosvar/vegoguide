@@ -1,10 +1,11 @@
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router';
 import ReactDOM from 'react-dom';
 import Routes from './routes';
 import store from './store';
+import history from './store/middleware/history';
 import i18n from './i18n';
 import App from './components/App';
 import './styles/index.scss';
@@ -13,11 +14,11 @@ import './styles/index.scss';
 ReactDOM.render(
   <Provider store={store}>
     <I18nextProvider i18n={i18n}>
-      <Router>
+      <ConnectedRouter history={history}>
         <App>
           <Routes />
         </App>
-      </Router>
+      </ConnectedRouter>
     </I18nextProvider>
   </Provider>,
   document.getElementById('root')
@@ -38,15 +39,16 @@ if (process.env.NODE_ENV !== 'production') {
       const NewRoutes = require('./routes').default;
       const NewStore = require('./store').default;
       const NewI18n = require('./i18n').default;
+      const NewHistory = require('./store/middleware/history').default;
 
       ReactDOM.render(
         <Provider store={NewStore}>
           <I18nextProvider i18n={NewI18n}>
-            <Router>
+            <ConnectedRouter history={NewHistory}>
               <NextApp>
                 <NewRoutes />
               </NextApp>
-            </Router>
+            </ConnectedRouter>
           </I18nextProvider>
         </Provider>,
         document.getElementById('root')

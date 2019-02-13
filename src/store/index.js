@@ -1,9 +1,10 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
-import * as modules from './modules';
-import { reduxDevTools } from './middleware';
+import { reduxDevTools, router, history } from './middleware';
 import generateReducers from './generate-reducers';
 import generateSagas from './generate-sagas';
+import * as modules from './modules';
 
 // Create the redux-saga middleware, it has to be created here since we need
 // access to it after the store has been created
@@ -13,10 +14,18 @@ const sagaMiddleware = createSagaMiddleware();
 const reducers = generateReducers(modules);
 const rootSaga = generateSagas(modules);
 
+// Set up the middleware
+const middleware = compose(
+  applyMiddleware(routerMiddleware(history), sagaMiddleware)
+);
+
 // Create the store
 const store = createStore(
-  combineReducers(reducers),
-  reduxDevTools(applyMiddleware(sagaMiddleware))
+  combineReducers({
+    ...reducers,
+    router
+  }),
+  reduxDevTools(middleware)
 );
 
 // Invoke sagas
