@@ -1,11 +1,12 @@
 import React from 'react';
+import classnames from 'classnames';
 import defaultProps from './default-props';
 import propTypes from './prop-types';
 import style from './style.module.scss';
 
-const Loading = ({ height } = {}) => (
+const Loading = ({ className, height } = {}) => (
   <div
-    className={style.wrapper}
+    className={classnames([style.wrapper, className])}
     style={{
       height
     }}
