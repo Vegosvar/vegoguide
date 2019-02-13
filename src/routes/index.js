@@ -53,7 +53,7 @@ const onExit = location => el => {
 const transitionWrapper = ({ location }) => (
   <TransitionGroup className="transition-group">
     <Transition
-      key={location.key || location.pathname}
+      key={location.pathname}
       timeout={600}
       onEnter={onEnter(location)}
       onExit={onExit(location)}
