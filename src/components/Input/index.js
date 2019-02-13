@@ -3,12 +3,13 @@ import classnames from 'classnames';
 import defaultProps from './default-props';
 import propTypes from './prop-types';
 
-const Input = ({ className, onChange, value, ...props }) => (
+const Input = ({ className, onChange, placeholder, type, value }) => (
   <input
     className={classnames(['form-input', className])}
     value={value}
+    type={type}
+    placeholder={placeholder}
     onChange={onChange}
-    {...props}
   />
 );
 
