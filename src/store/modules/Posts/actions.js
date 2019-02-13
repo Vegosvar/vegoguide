@@ -2,6 +2,7 @@ import {
   CREATE_POST,
   FETCH_POSTS,
   UPDATE_POST,
+  SET_FETCHING,
   SET_FILTER_CATEGORIES,
   SET_FILTER_SEARCH
 } from './constants';
@@ -29,5 +30,10 @@ export const setFilterCategories = ids => ({
 
 export const setFilterSearch = value => ({
   type: SET_FILTER_SEARCH,
+  value
+});
+
+export const setFetching = value => ({
+  type: SET_FETCHING,
   value
 });

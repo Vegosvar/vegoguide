@@ -1,6 +1,7 @@
 import { set } from 'lodash';
 import {
   CREATE_POST,
+  SET_FETCHING,
   SET_FILTER_CATEGORIES,
   SET_FILTER_SEARCH
 } from './constants';
@@ -18,6 +19,11 @@ const reducers = {
     }
 
     set(state, 'items', newItems);
+
+    return state;
+  },
+  [SET_FETCHING](state, { value }) {
+    set(state, 'fetching', value);
 
     return state;
   },

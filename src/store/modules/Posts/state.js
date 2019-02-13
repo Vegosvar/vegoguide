@@ -1,5 +1,6 @@
 const state = {
   items: [],
+  fetching: false,
   filter: {
     categories: [],
     search: ''
