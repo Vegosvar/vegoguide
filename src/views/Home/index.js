@@ -4,7 +4,7 @@ import {
   PostFilterSearch,
   PostCardGrid
 } from 'containers';
-import { Container, Hero, Navbar, Page } from 'components';
+import { Container, Hero, Page } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withTranslation } from 'react-i18next';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +12,6 @@ import PropTypes from './prop-types';
 import style from './style.module.scss';
 
 const Home = ({ t }) => [
-  <Navbar key="navbar" />,
   <Hero key="hero">
     <div className={style.searchWrapper}>
       <PostFilterSearch className={style.search} placeholder={t('Sök')} />
