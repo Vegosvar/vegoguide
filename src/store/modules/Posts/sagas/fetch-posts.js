@@ -1,11 +1,35 @@
 import Api from 'api';
-import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { FETCH_POSTS } from '../constants';
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { createPost, setError, setFetching } from '../actions';
 
-function* worker({ params, settings } = {}) {
+const getFetchOptions = state => {
+  const { categories, search } = state.Posts.filter;
+
+  const params = {
+    query: {}
+  };
+
+  if (search) {
+    params.query.$text = {
+      $search: search
+    };
+  }
+
+  if (categories.length > 0) {
+    params.query.categories = categories;
+  }
+
+  const settings = {};
+
+  return { params, settings };
+};
+
+function* fetchPosts() {
   // Clear last error
   yield put(setError(null));
+
+  const { params, settings } = yield select(getFetchOptions);
 
   // Set as fetching
   yield put(setFetching(true));
@@ -28,7 +52,7 @@ function* worker({ params, settings } = {}) {
 }
 
 function* watcher() {
-  yield takeLatest(FETCH_POSTS, worker);
+  yield takeLatest(FETCH_POSTS, fetchPosts);
 }
 
 export default watcher;
