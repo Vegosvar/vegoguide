@@ -50,6 +50,7 @@ const onExit = location => el => {
   });
 };
 
+// TODO: Each route should handle transitions on its own
 const transitionWrapper = ({ location }) => (
   <TransitionGroup className="transition-group">
     <Transition
