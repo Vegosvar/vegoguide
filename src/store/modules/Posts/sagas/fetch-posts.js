@@ -16,9 +16,23 @@ const getFetchOptions = state => {
     skip: state.Posts.skip
   };
 
-  if (search) {
-    params.query.$text = {
-      $search: search
+  if (search && search.length > 0) {
+    // TODO We will probably want to be able to set what properties are searched in the UI somewhere
+    const keys = ['title', 'address.city', 'address.street'];
+
+    params.query = {
+      $or: keys.reduce(
+        (query, key) => [
+          ...query,
+          {
+            [key]: {
+              $regex: search,
+              $options: 'gi'
+            }
+          }
+        ],
+        []
+      )
     };
   }
 
