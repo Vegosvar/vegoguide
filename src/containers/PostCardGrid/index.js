@@ -25,10 +25,6 @@ const PostCardGridContainer = ({ error, fetch, isFetching, items, t }) => {
     fetch();
   };
 
-  const fetchItemsAgain = () => {
-    setFetched(false);
-  };
-
   if (!hasFetched && !isFetching) {
     fetchItems();
   }
@@ -48,7 +44,7 @@ const PostCardGridContainer = ({ error, fetch, isFetching, items, t }) => {
         </h4>
         <div>{error}</div>
         <div className="empty-action">
-          <Button onClick={fetchItemsAgain}>
+          <Button onClick={fetchItems}>
             <FontAwesomeIcon icon={faRedo} />
             &nbsp;
             <span>{t('Try again')}</span>
