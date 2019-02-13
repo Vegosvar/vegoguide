@@ -21,11 +21,8 @@ const mapDispatchToProps = dispatch => ({
   onChange: e => {
     const { value = '' } = e.target;
 
-    dispatch(
-      push({
-        search: `?search=${value}`
-      })
-    );
+    const search = value ? `?search=${value}` : undefined;
+    dispatch(push({ search }));
 
     dispatch(setFilterSearch(value));
   }
