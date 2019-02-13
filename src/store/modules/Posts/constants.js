@@ -1,6 +1,7 @@
 export const CREATE_POST = 'CREATE_POST';
 export const UPDATE_POST = 'UPDATE_POST';
 export const FETCH_POSTS = 'FETCH_POSTS';
+export const SET_ERROR = 'SET_ERROR';
 export const SET_FETCHING = 'SET_FETCHING';
 export const SET_FILTER_CATEGORIES = 'SET_FILTER_CATEGORIES';
 export const SET_FILTER_SEARCH = 'SET_FILTER_SEARCH';

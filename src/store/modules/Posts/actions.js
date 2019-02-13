@@ -2,6 +2,7 @@ import {
   CREATE_POST,
   FETCH_POSTS,
   UPDATE_POST,
+  SET_ERROR,
   SET_FETCHING,
   SET_FILTER_CATEGORIES,
   SET_FILTER_SEARCH
@@ -35,5 +36,10 @@ export const setFilterSearch = value => ({
 
 export const setFetching = value => ({
   type: SET_FETCHING,
+  value
+});
+
+export const setError = value => ({
+  type: SET_ERROR,
   value
 });
