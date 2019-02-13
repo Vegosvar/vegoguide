@@ -1,6 +1,10 @@
 import Api from 'api';
-import { FETCH_POSTS } from '../constants';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
+import {
+  FETCH_POSTS,
+  SET_FILTER_CATEGORIES,
+  SET_FILTER_SEARCH
+} from '../constants';
 import { createPost, setError, setFetching } from '../actions';
 
 const getFetchOptions = state => {
@@ -53,6 +57,8 @@ function* fetchPosts() {
 
 function* watcher() {
   yield takeLatest(FETCH_POSTS, fetchPosts);
+  yield takeLatest(SET_FILTER_SEARCH, fetchPosts);
+  yield takeLatest(SET_FILTER_CATEGORIES, fetchPosts);
 }
 
 export default watcher;
