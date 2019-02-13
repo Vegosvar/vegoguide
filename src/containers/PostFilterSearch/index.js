@@ -20,8 +20,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onChange: e => {
     const { value = '' } = e.target;
+    const trimmedValue = String(value).trim();
 
-    const search = value ? `?search=${value}` : undefined;
+    const search = trimmedValue ? `?search=${trimmedValue}` : undefined;
     dispatch(push({ search }));
 
     dispatch(setFilterSearch(value));
