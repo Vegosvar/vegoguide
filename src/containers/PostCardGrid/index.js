@@ -1,21 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Loading, PostCardGrid } from 'components';
+import { withTranslation } from 'react-i18next';
+import { Button, Loading, PostCardGrid } from 'components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fetchPosts } from 'store/modules/Posts/actions';
 import { applyFilters } from 'store/modules/Posts/filters';
+import { faRedo, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const mapStateToProps = state => ({
+  isFetching: state.Posts.fetching,
+  error: state.Posts.error,
   items: applyFilters(state)
 });
 
 const mapDispatchToProps = {
-  fetchPosts
+  fetch: fetchPosts
 };
 
-const PostCardGridContainer = ({ items, fetchPosts }) => {
-  if (!items || items.length === 0) {
-    fetchPosts();
-    return <Loading height="100%" />;
+const PostCardGridContainer = ({ error, fetch, isFetching, items, t }) => {
+  const [hasFetched, setFetched] = useState(false);
+
+  const fetchItems = () => {
+    setFetched(true);
+    fetch();
+  };
+
+  const fetchItemsAgain = () => {
+    setFetched(false);
+  };
+
+  if (!hasFetched && !isFetching) {
+    fetchItems();
+  }
+
+  if (isFetching) {
+    return <Loading className="mt-2" />;
+  }
+
+  if (hasFetched && (!items || items.length === 0)) {
+    return (
+      <div className="empty mt-2">
+        <div className="empty-icon">
+          <FontAwesomeIcon size="3x" icon={faTimes} />
+        </div>
+        <h4 className="empty-title">
+          <span>{t('No result')}</span>
+        </h4>
+        <div>{error}</div>
+        <div className="empty-action">
+          <Button onClick={fetchItemsAgain}>
+            <FontAwesomeIcon icon={faRedo} />
+            &nbsp;
+            <span>{t('Try again')}</span>
+          </Button>
+        </div>
+      </div>
+    );
   }
 
   return <PostCardGrid items={items} />;
@@ -24,4 +64,4 @@ const PostCardGridContainer = ({ items, fetchPosts }) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PostCardGridContainer);
+)(withTranslation()(PostCardGridContainer));
