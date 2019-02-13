@@ -43,7 +43,7 @@ const PostCardGrid = ({ items }) => (
   </Flipper>
 );
 
-PostCard.defaultProps = defaultProps;
+PostCardGrid.defaultProps = defaultProps;
 PostCardGrid.propTypes = propTypes;
 
 export default PostCardGrid;
