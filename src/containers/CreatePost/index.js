@@ -9,11 +9,11 @@ const mapStateToProps = (state, { localId }) => ({
 });
 
 const mapDispatchToProps = {
-  createPost,
-  updatePost
+  create: createPost,
+  update: updatePost
 };
 
-const PostFormContainer = ({ createPost, updatePost, post }) => {
+const PostFormContainer = ({ create, update, post }) => {
   const submit = post ? createPost : updatePost;
 
   const postValue = post || {
