@@ -24,7 +24,7 @@ const onElementExit = (el, index, removeElement) =>
     easing: 'easeOutSine'
   });
 
-const PostCardGrid = ({ items }) => (
+const PostCardGrid = ({ items, size }) => (
   <Flipper flipKey={items.length}>
     <Row>
       {items.map(item => (
@@ -34,7 +34,7 @@ const PostCardGrid = ({ items }) => (
           onExit={onElementExit}
           key={item._id}
         >
-          <Col size={6}>
+          <Col size={size}>
             <PostCard {...item} />
           </Col>
         </Flipped>
