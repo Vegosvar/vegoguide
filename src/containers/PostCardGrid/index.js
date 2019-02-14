@@ -42,7 +42,7 @@ const PostCardGridContainer = ({ error, fetch, isFetching, items, t }) => {
         <h4 className="empty-title">
           <span>{t('No result')}</span>
         </h4>
-        <div>{error}</div>
+        <code>{error}</code>
         <div className="empty-action">
           <Button onClick={fetchItems}>
             <FontAwesomeIcon icon={faRedo} />
