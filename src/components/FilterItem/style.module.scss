@@ -3,12 +3,4 @@
 .item {
   cursor: pointer;
   margin: 0.25rem 0.125rem;
-
-  &:first-child {
-    margin-left: 0.4rem;
-  }
-
-  &:last-child {
-    margin-right: 0.4rem;
-  }
 }

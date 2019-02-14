@@ -1,14 +1,14 @@
 @import 'src/styles/variables';
 
 .categoriesWrapper {
-  padding: 10px;
+  padding: 10px 0;
 }
 
 .searchWrapper {
   align-items: center;
   display: flex;
   max-width: 560px;
-  padding: 16px 16px 8px;
+  padding: 16px 0;
   width: 100%;
 
   .search {
