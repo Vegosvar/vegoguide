@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Filter } from 'components';
-import { setFilterCategories } from 'store/modules/Posts/actions';
+import { fetchPosts, setFilterCategories } from 'store/modules/Posts/actions';
 import i18n from 'i18n';
 
 const mapStateToProps = state => ({
@@ -20,9 +20,12 @@ const mapStateToProps = state => ({
   multiple: true
 });
 
-const mapDispatchToProps = {
-  onChange: setFilterCategories
-};
+const mapDispatchToProps = dispatch => ({
+  onChange: (...args) => {
+    dispatch(setFilterCategories(...args))
+    dispatch(fetchPosts())
+  }
+});
 
 export default connect(
   mapStateToProps,

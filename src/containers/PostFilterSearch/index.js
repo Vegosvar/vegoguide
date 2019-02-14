@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { Input } from 'components';
-import { setFilterSearch } from 'store/modules/Posts/actions';
+import { fetchPosts, setFilterSearch } from 'store/modules/Posts/actions';
 import { setURLQueryParam } from 'store/modules/App/actions';
 import queryString from 'query-string';
 import propTypes from './prop-types';
@@ -19,12 +19,14 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   connectedSetFilterSearch: setFilterSearch,
-  connectedSetURLQueryParam: setURLQueryParam
+  connectedSetURLQueryParam: setURLQueryParam,
+  connectedFetchPosts: fetchPosts
 };
 
 const PostFilterSearch = ({
   connectedSetFilterSearch,
   connectedSetURLQueryParam,
+  connectedFetchPosts,
   location,
   value,
   ...props
@@ -38,12 +40,9 @@ const PostFilterSearch = ({
     locationSearch.length > 0 &&
     locationSearch !== value
   ) {
-    connectedSetURLQueryParam({
-      key: 'search',
-      value: locationSearch
-    });
-
     setInitialized(true);
+    connectedSetFilterSearch(value);
+    connectedFetchPosts();
   }
 
   const onChange = e => {
@@ -55,6 +54,7 @@ const PostFilterSearch = ({
     });
 
     connectedSetFilterSearch(value);
+    connectedFetchPosts();
   };
 
   return (
