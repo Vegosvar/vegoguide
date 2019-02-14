@@ -1,41 +1,73 @@
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { push } from 'connected-react-router';
-import { Input } from 'components';
+import { Input, propTypes as InputPropTypes } from 'components';
 import { setFilterSearch } from 'store/modules/Posts/actions';
+import { setURLQueryParam } from 'store/modules/App/actions';
 import queryString from 'query-string';
-import PropTypes from './prop-types';
+import propTypes from './prop-types';
 
+// TODO Move parseQuery into a HOC
 const parseQuery = (location, property, key) => {
   const parsed = queryString.parse(location[property]);
   return parsed[key];
 };
 
 const mapStateToProps = state => ({
-  value:
-    state.Posts.filter.search ||
-    parseQuery(state.router.location, 'search', 'search')
+  value: state.Posts.filter.search
 });
 
-const mapDispatchToProps = dispatch => ({
-  onChange: e => {
-    const { value = '' } = e.target;
-    const trimmedValue = String(value).trim();
+const mapDispatchToProps = {
+  connectedSetFilterSearch: setFilterSearch,
+  connectedSetURLQueryParam: setURLQueryParam
+};
 
-    const search = trimmedValue ? `?search=${trimmedValue}` : undefined;
-    dispatch(push({ search }));
+const PostFilterSearch = ({
+  connectedSetFilterSearch,
+  connectedSetURLQueryParam,
+  location,
+  value,
+  ...props
+}) => {
+  const [isInitialized, setInitialized] = useState(false);
+  const locationSearch = parseQuery(location, 'search', 'search');
 
-    dispatch(setFilterSearch(value));
+  if (
+    !isInitialized &&
+    locationSearch &&
+    locationSearch.length > 0 &&
+    locationSearch !== value
+  ) {
+    connectedSetURLQueryParam({
+      key: 'search',
+      value: locationSearch
+    });
+
+    setInitialized(true);
   }
-});
 
-// TODO: We need to dispatch the setFilterSearch value when the component is loaded if value is already set
+  const onChange = e => {
+    const value = String(e.target.value).trim();
 
-const PostFilterSearch = connect(
+    connectedSetURLQueryParam({
+      key: 'search',
+      value
+    });
+
+    connectedSetFilterSearch(value);
+  };
+
+  return (
+    <Input {...props} value={value || locationSearch} onChange={onChange} />
+  );
+};
+
+PostFilterSearch.propTypes = {
+  ...propTypes,
+  ...InputPropTypes
+};
+
+export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Input);
-
-PostFilterSearch.propTypes = PropTypes;
-
-export default withRouter(PostFilterSearch);
+)(withRouter(PostFilterSearch));
