@@ -50,9 +50,6 @@ const getFetchOptions = state => {
 };
 
 function* fetchPosts() {
-  // Use a debounce
-  yield delay(150);
-
   // Clear last error
   yield put(setError(null));
 
@@ -87,6 +84,9 @@ function* fetchPosts() {
 
     // Set as done fetching
     yield put(setFetching(false));
+
+    // Use a debounce
+    yield delay(500);
   }
 }
 
