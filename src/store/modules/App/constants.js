@@ -3,3 +3,4 @@ export const SET_SYNCED = 'SET_SYNCED';
 export const SET_SYNCING = 'SET_SYNCING';
 export const SET_SYNCED_DATE = 'SET_SYNCED_DATE';
 export const SET_LANGUAGE = 'SET_LANGUAGE';
+export const SET_URL_QUERY_PARAM = 'SET_URL_QUERY_PARAM';
