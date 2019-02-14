@@ -1,5 +1,13 @@
 import Api from 'api';
-import { all, call, delay, put, select, takeLatest } from 'redux-saga/effects';
+import {
+  all,
+  call,
+  cancelled,
+  delay,
+  put,
+  select,
+  takeLatest
+} from 'redux-saga/effects';
 import { FETCH_POSTS } from '../constants';
 import { createPost, setError, setFetching } from '../actions';
 
@@ -48,12 +56,19 @@ function* fetchPosts() {
   // Clear last error
   yield put(setError(null));
 
-  const { params, settings } = yield select(getFetchOptions);
+  // Set up an abort controller so we can abort the API call when the task is cancelled
+  const abortController = new AbortController();
 
   // Set as fetching
   yield put(setFetching(true));
 
   try {
+    // Get the params and settings ready
+    const { params, settings } = yield select(getFetchOptions);
+
+    // Set the abortController signal to the settings so the request can be aborted
+    settings.signal = abortController.signal;
+
     // Call the API and fetch the posts
     const response = yield call(Api.Posts.fetch, params, settings);
 
@@ -65,6 +80,11 @@ function* fetchPosts() {
   } catch (error) {
     yield put(setError(error.message));
   } finally {
+    if (yield cancelled()) {
+      // the task was cancelled, abort the API call
+      abortController.abort();
+    }
+
     // Set as done fetching
     yield put(setFetching(false));
   }
