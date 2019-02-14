@@ -11,6 +11,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import propTypes from './prop-types';
 import style from './style.module.scss';
 
+// TODO Move PostFilterSearch and icon to its own container ocmponent and animate the logo when posts are fetched
+
 const Home = ({ t }) => [
   <Hero key="hero">
     <div className={style.searchWrapper}>
