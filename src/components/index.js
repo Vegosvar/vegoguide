@@ -18,6 +18,8 @@ export { default as Image } from './Image';
 export { default as ImageCrop } from './ImageCrop';
 export { default as ImageUpload } from './ImageUpload';
 export { default as Input } from './Input';
+export { propTypes as InputPropTypes } from './Input'
+export { defaultProps as InputDefaultProps } from './Input'
 export { default as Label } from './Label';
 export { default as Loading } from './Loading';
 export { default as Menu } from './Menu';
