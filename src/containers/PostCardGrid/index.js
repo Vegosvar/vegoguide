@@ -83,7 +83,7 @@ const PostCardGridContainer = ({
     );
   }
 
-  const size = 6; // TODO: Determine the size depending on the device's screen size
+  const size = 12; // TODO: Determine the size depending on the device's screen size
   return <PostCardGrid items={items} size={size} />;
 };
 
