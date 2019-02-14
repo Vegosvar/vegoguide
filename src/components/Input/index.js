@@ -17,3 +17,7 @@ Input.defaultProps = defaultProps;
 Input.propTypes = propTypes;
 
 export default Input;
+
+export {
+  propTypes
+}
