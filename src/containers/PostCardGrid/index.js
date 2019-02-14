@@ -6,24 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fetchPosts } from 'store/modules/Posts/actions';
 import { applyFilters } from 'store/modules/Posts/filters';
 import { faRedo, faTimes } from '@fortawesome/free-solid-svg-icons';
-
-const mapStateToProps = state => ({
-  isFetching: state.Posts.fetching,
-  error: state.Posts.error,
-  allItems: state.Posts.items,
-  items: applyFilters(state)
-});
-
-const mapDispatchToProps = {
-  fetch: fetchPosts
-};
+import propTypes from './prop-types';
 
 const PostCardGridContainer = ({
-  allItems,
-  error,
+  posts,
   fetch,
   isFetching,
-  items,
+  filteredPosts,
   t
 }) => {
   const [hasFetched, setFetched] = useState(false);
@@ -43,8 +32,8 @@ const PostCardGridContainer = ({
     return <Loading className="mt-2" />;
   }
 
-  if (hasFetched && (!items || items.length === 0)) {
-    if (allItems && allItems.length > 0) {
+  if (hasFetched && (!filteredPosts || filteredPosts.length === 0)) {
+    if (posts && posts.length > 0) {
       return (
         <div className="empty mt-2">
           <div className="empty-icon">
@@ -84,7 +73,19 @@ const PostCardGridContainer = ({
   }
 
   const size = 12; // TODO: Determine the size depending on the device's screen size
-  return <PostCardGrid items={items} size={size} />;
+  return <PostCardGrid items={filteredPosts} size={size} />;
+};
+
+PostCardGridContainer.propTypes = propTypes;
+
+const mapStateToProps = state => ({
+  isFetching: state.Posts.fetching,
+  posts: state.Posts.items,
+  filteredPosts: applyFilters(state)
+});
+
+const mapDispatchToProps = {
+  fetch: fetchPosts
 };
 
 export default connect(
