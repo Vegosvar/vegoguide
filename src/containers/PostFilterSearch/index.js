@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { Input, propTypes as InputPropTypes } from 'components';
+import { Input, InputPropTypes } from 'components';
 import { setFilterSearch } from 'store/modules/Posts/actions';
 import { setURLQueryParam } from 'store/modules/App/actions';
 import queryString from 'query-string';
