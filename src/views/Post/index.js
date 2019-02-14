@@ -1,7 +1,7 @@
 import React from 'react';
 import { Post as PostContainer } from 'containers';
 import { Container, Page } from 'components';
-import PropTypes from './prop-types';
+import propTypes from './prop-types';
 
 const Post = ({
   match: {
@@ -15,6 +15,6 @@ const Post = ({
   </Container>
 );
 
-Post.propTypes = PropTypes;
+Post.propTypes = propTypes;
 
 export default Post;

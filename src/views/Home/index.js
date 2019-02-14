@@ -8,7 +8,7 @@ import { Container, Hero, Page } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withTranslation } from 'react-i18next';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import PropTypes from './prop-types';
+import propTypes from './prop-types';
 import style from './style.module.scss';
 
 const Home = ({ t }) => [
@@ -33,6 +33,6 @@ const Home = ({ t }) => [
   </Container>
 ];
 
-Home.propTypes = PropTypes;
+Home.propTypes = propTypes;
 
 export default withTranslation()(Home);

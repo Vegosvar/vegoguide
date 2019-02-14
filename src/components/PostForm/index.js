@@ -10,7 +10,7 @@ import {
   ImageUpload,
   Label
 } from 'components';
-import PropTypes from './prop-types';
+import propTypes from './prop-types';
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -93,6 +93,6 @@ class PostForm extends React.Component {
   }
 }
 
-PostForm.propTypes = PropTypes;
+PostForm.propTypes = propTypes;
 
 export default PostForm;
