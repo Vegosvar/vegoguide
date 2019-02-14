@@ -10,5 +10,10 @@
     height: 35vh;
     justify-content: center;
     padding: 15px;
+
+    > svg {
+      max-width: 100%;
+      width: 100%;
+    }
   }
 }
