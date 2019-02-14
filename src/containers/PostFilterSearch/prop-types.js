@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 
 export default {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      search: PropTypes.string
-    })
+  connectedSetFilterSearch: PropTypes.func.isRequired,
+  connectedSetURLQueryParam: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  location: PropTypes.shape({
+    search: PropTypes.string
   })
 };
