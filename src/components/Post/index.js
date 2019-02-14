@@ -32,3 +32,5 @@ const Post = ({
 Post.propTypes = propTypes;
 
 export default Post;
+
+export { propTypes };
