@@ -46,6 +46,9 @@ const getFetchOptions = state => {
 };
 
 function* fetchPosts() {
+  // Use a debounce
+  yield delay(150);
+
   // Clear last error
   yield put(setError(null));
 
