@@ -41,7 +41,7 @@ const PostFilterSearch = ({
     locationSearch !== value
   ) {
     setInitialized(true);
-    connectedSetFilterSearch(value);
+    connectedSetFilterSearch(locationSearch);
     connectedFetchPosts();
   }
 
