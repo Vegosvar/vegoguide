@@ -39,7 +39,7 @@ const PostCardGridContainer = ({
     fetchItems();
   }
 
-  if (isFetching) {
+  if (!hasFetched && isFetching) {
     return <Loading className="mt-2" />;
   }
 
