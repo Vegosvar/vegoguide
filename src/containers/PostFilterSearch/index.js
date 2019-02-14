@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { Input, InputPropTypes } from 'components';
+import { Input } from 'components';
 import { setFilterSearch } from 'store/modules/Posts/actions';
 import { setURLQueryParam } from 'store/modules/App/actions';
 import queryString from 'query-string';
@@ -62,10 +62,7 @@ const PostFilterSearch = ({
   );
 };
 
-PostFilterSearch.propTypes = {
-  ...propTypes,
-  ...InputPropTypes
-};
+PostFilterSearch.propTypes = propTypes;
 
 export default connect(
   mapStateToProps,
