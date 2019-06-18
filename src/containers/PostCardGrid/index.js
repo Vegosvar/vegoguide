@@ -88,7 +88,7 @@ PostCardGridContainer.propTypes = propTypes;
 const mapStateToProps = state => ({
   isFetching: state.Posts.fetching,
   posts: state.Posts.items,
-  filteredPosts: applyFilters(state)
+  filteredPosts: applyFilters(state) // Todo, should probably memoize this
 });
 
 const mapDispatchToProps = {
