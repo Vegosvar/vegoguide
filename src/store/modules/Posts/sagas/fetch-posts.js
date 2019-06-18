@@ -62,10 +62,7 @@ function* fetchPosts(payload = {}) {
 
   try {
     // Get the params and settings ready
-    const { params, settings } = yield select(
-      getFetchOptions,
-      payload
-    );
+    const { params, settings } = yield select(getFetchOptions, payload);
 
     // Set the abortController signal to the settings so the request can be aborted
     settings.signal = abortController.signal;
