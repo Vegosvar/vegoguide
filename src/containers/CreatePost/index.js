@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { PostForm } from 'components';
+import PostForm from 'components/PostForm';
 import { createPost, updatePost } from 'store/modules/Posts/actions';
 import uuidv4 from 'uuid/v4';
 

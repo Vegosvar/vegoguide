@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Loading, Post } from 'components';
+import Loading from 'components/Loading';
+import Post from 'components/Post';
 import { fetchPosts } from 'store/modules/Posts/actions';
 
 const mapStateToProps = (state, { url }) => ({

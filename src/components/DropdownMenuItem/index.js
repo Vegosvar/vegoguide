@@ -1,6 +1,6 @@
 import React from 'react';
 import { get } from 'lodash';
-import { MenuItem } from 'components';
+import MenuItem from 'components/MenuItem';
 
 const DropdownMenuItem = ({ className, option, selected, onChange }) => {
   const value = get(option, 'value', option);

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
-import { Button, Loading, PostCardGrid } from 'components';
+import Button from 'components/Button';
+import Loading from 'components/Loading';
+import PostCardGrid from 'components/PostCardGrid';
 import { dispatchPromisify } from 'helpers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fetchPosts } from 'store/modules/Posts/actions';

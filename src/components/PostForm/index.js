@@ -1,15 +1,13 @@
 import React from 'react';
 import { cloneDeep, set } from 'lodash';
-import {
-  Button,
-  Container,
-  Row,
-  Col,
-  FormGroup,
-  Input,
-  ImageUpload,
-  Label
-} from 'components';
+import Button from 'components/Button';
+import Container from 'components/Container';
+import Row from 'components/Row';
+import Col from 'components/Col';
+import FormGroup from 'components/FormGroup';
+import Input from 'components/Input';
+import ImageUpload from 'components/ImageUpload';
+import Label from 'components/Label';
 import propTypes from './prop-types';
 
 class PostForm extends React.Component {

@@ -3,7 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { TransitionGroup, Transition } from 'react-transition-group';
 import anime from 'animejs';
 import Loadable from 'react-loadable';
-import { Loading } from 'components';
+import Loading from 'components/Loading';
 import * as routes from './routes';
 
 const getRoutes = (routesConfig = []) =>

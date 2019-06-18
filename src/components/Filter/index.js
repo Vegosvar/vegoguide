@@ -1,7 +1,7 @@
 import React from 'react';
 import { get } from 'lodash';
 import classnames from 'classnames';
-import { FilterItem } from 'components';
+import FilterItem from 'components/FilterItem';
 import style from './style.module.scss';
 import propTypes from './prop-types';
 import defaultProps from './default-props';

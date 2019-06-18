@@ -1,6 +1,7 @@
 import React from 'react';
-import { CreatePost as CreatePostContainer } from 'containers';
-import { Container, Page } from 'components';
+import CreatePostContainer from 'containers/CreatePost';
+import Container from 'components/Container';
+import Page from 'components/Page';
 
 const CreatePost = () => (
   <Container>

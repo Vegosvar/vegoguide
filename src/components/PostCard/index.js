@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardBody, CardImage, Image } from 'components';
+import Card from 'components/Card';
+import CardBody from 'components/CardBody';
+import CardImage from 'components/CardImage';
+import Image from 'components/Image';
 import propTypes from './prop-types';
 
 const PostCard = ({ cover, title, url }) => (

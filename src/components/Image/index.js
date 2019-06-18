@@ -1,6 +1,6 @@
 import React from 'react';
 import Img from 'react-image';
-import { Loading } from 'components';
+import Loading from 'components/Loading';
 import classnames from 'classnames';
 import defaultProps from './default-props';
 import propTypes from './prop-types';

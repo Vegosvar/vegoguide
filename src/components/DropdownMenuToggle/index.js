@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Button } from 'components';
+import Button from 'components/Button';
 
 const DropdownMenuToggle = ({ className, children, ...props }) => (
   <Button

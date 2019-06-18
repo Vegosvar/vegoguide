@@ -1,5 +1,7 @@
 import React from 'react';
-import { Col, PostCard, Row } from 'components';
+import Col from 'components/Col';
+import PostCard from 'components/PostCard';
+import Row from 'components/Row';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import anime from 'animejs';
 import defaultProps from './default-props';

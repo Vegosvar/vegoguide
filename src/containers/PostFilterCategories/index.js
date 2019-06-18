@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Filter } from 'components';
+import Filter from 'components/Filter';
 import { fetchPosts, setFilterCategories } from 'store/modules/Posts/actions';
 import i18n from 'i18n';
 

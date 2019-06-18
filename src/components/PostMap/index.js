@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostMapMarker } from 'components';
+import PostMapMarker from 'components/PostMapMarker';
 import { Map, TileLayer } from 'react-leaflet';
 import config from 'config';
 import 'leaflet/dist/leaflet.css';

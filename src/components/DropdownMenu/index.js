@@ -1,11 +1,9 @@
 import React from 'react';
 import { get } from 'lodash';
-import {
-  Dropdown,
-  DropdownMenuItem,
-  DropdownMenuToggle,
-  Menu
-} from 'components';
+import Dropdown from 'components/Dropdown';
+import DropdownMenuItem from 'components/DropdownMenuItem';
+import DropdownMenuToggle from 'components/DropdownMenuToggle';
+import Menu from 'components/Menu';
 import propTypes from './prop-types';
 
 const DropdownMenu = ({

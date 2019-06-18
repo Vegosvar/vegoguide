@@ -1,10 +1,10 @@
 import React from 'react';
-import {
-  PostFilterCategories,
-  PostFilterSearch,
-  PostCardGrid
-} from 'containers';
-import { Container, Hero, Page } from 'components';
+import PostFilterCategories from 'containers/PostFilterCategories';
+import PostFilterSearch from 'containers/PostFilterSearch';
+import PostCardGrid from 'containers/PostCardGrid';
+import Container from 'components/Container';
+import Hero from 'components/Hero';
+import Page from 'components/Page';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withTranslation } from 'react-i18next';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';

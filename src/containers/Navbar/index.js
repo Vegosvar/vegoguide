@@ -3,7 +3,8 @@ import { withRouter } from 'react-router';
 import { withTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { Button, Navbar } from 'components';
+import Button from 'components/Button';
+import Navbar from 'components/Navbar';
 import LanguageDropdownMenu from '../LanguageDropdownMenu';
 
 import style from './style.module.scss';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'components';
+import Container from 'components/Container';
 import { ReactComponent as Logo } from './logo.svg';
 import style from './style.module.scss';
 

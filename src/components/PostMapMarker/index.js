@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Image } from 'components';
+import Image from 'components/Image';
 import { Marker, Popup } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import propTypes from './prop-types';

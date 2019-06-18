@@ -1,6 +1,7 @@
 import React from 'react';
-import { Post as PostContainer } from 'containers';
-import { Container, Page } from 'components';
+import PostContainer from 'containers/Post';
+import Container from 'components/Container';
+import Page from 'components/Page';
 import propTypes from './prop-types';
 
 const Post = ({

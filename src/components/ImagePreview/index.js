@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'components';
+import Image from 'components/Image';
 import propTypes from './prop-types';
 import style from './style.module.scss';
 

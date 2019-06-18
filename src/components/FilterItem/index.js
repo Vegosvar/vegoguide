@@ -1,7 +1,7 @@
 import React from 'react';
 import { get } from 'lodash';
 import classnames from 'classnames';
-import { Button } from 'components';
+import Button from 'components/Button';
 import propTypes from './prop-types';
 import style from './style.module.scss';
 

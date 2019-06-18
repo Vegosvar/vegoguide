@@ -5,7 +5,8 @@ import {
   faChevronLeft,
   faChevronRight
 } from '@fortawesome/free-solid-svg-icons';
-import { Image, Label } from 'components';
+import Image from 'components/Image';
+import Label from 'components/Label';
 import propTypes from './prop-types';
 import defaultProps from './default-props';
 import style from './style.module.scss';

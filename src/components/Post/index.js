@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel } from 'components';
+import Carousel from 'components/Carousel';
 import propTypes from './prop-types';
 import style from './style.module.scss';
 

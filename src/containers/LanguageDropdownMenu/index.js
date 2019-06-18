@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import i18n from 'i18n';
-import { DropdownMenu } from 'components';
+import DropdownMenu from 'components/DropdownMenu';
 import { changeLanguage } from 'store/modules/App/actions';
 
 const mapStateToProps = state => ({
