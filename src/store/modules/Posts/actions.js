@@ -13,10 +13,19 @@ export const createPost = post => ({
   post
 });
 
-export const fetchPosts = ({ params, settings } = {}) => ({
+export const fetchPosts = ({
+  params,
+  settings,
+  onFailure,
+  onFinished,
+  onSuccess
+} = {}) => ({
   type: FETCH_POSTS,
   params,
-  settings
+  settings,
+  onFailure,
+  onFinished,
+  onSuccess
 });
 
 export const updatePost = post => ({

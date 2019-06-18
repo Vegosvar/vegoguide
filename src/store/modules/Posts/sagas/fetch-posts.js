@@ -51,6 +51,10 @@ const getFetchOptions = (state, payload) => {
 };
 
 function* fetchPosts(payload = {}) {
+  // The payload can contain callback functions which are invoked whenever the
+  // action fails, succeeds or either way is finished
+  const { onFailure, onFinished, onSuccess } = payload;
+
   // Clear last error
   yield put(setError(null));
 
@@ -78,16 +82,37 @@ function* fetchPosts(payload = {}) {
 
     // Loop over posts and put them in the store
     yield all(data.map(post => put(createPost(post))));
+
+    // Call the onSuccess callback
+    if (typeof onSuccess === 'function') {
+      yield onSuccess(data);
+    }
   } catch (error) {
     yield put(setError(error.message));
+
+    // Call the onFailure callback
+    if (typeof onFailure === 'function') {
+      yield onFailure(error);
+    }
   } finally {
     if (yield cancelled()) {
       // the task was cancelled, abort the API call
       abortController.abort();
+
+      // Call the onFailure callback
+      if (typeof onFailure === 'function') {
+        const error = new Error('The request was cancelled');
+        yield onFailure(error);
+      }
     }
 
     // Set as done fetching
     yield put(setFetching(false));
+
+    // Call the onFinished callback
+    if (typeof onFinished === 'function') {
+      yield onFinished();
+    }
 
     // Use a debounce
     yield delay(500);
