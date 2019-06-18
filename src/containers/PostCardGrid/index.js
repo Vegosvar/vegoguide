@@ -16,11 +16,18 @@ const PostCardGridContainer = ({
   t
 }) => {
   const [hasFetched, setFetched] = useState(false);
+  const [fetchCalled, setFetchCalled] = useState(false);
 
   const fetchItems = () => {
-    if (!isFetching) {
-      setFetched(true);
-      fetch();
+    if (!isFetching && !fetchCalled) {
+      setFetchCalled(true);
+
+      fetch({
+        onFinished: () => {
+          setFetched(true);
+          setFetchCalled(false);
+        }
+      });
     }
   };
 
