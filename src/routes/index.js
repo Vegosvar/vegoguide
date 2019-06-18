@@ -52,6 +52,16 @@ const onExit = location => el => {
   });
 };
 
+const onExiting = location => el => {
+  const body = document.querySelector('body');
+  body.style.overflow = 'hidden';
+};
+
+const onExited = location => el => {
+  const body = document.querySelector('body');
+  body.style.overflow = '';
+};
+
 // TODO: Each route should handle transitions on its own
 const transitionWrapper = ({ location }) => (
   <TransitionGroup className="transition-group">
@@ -60,6 +70,8 @@ const transitionWrapper = ({ location }) => (
       timeout={600}
       onEnter={onEnter(location)}
       onExit={onExit(location)}
+      onExiting={onExiting(location)}
+      onExited={onExited(location)}
     >
       <div className="transition-group-route-wrapper">
         <Switch location={location}>{getRoutes(asyncRoutes)}</Switch>
