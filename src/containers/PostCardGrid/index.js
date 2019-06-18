@@ -66,7 +66,7 @@ const PostCardGridContainer = ({
           <FontAwesomeIcon size="3x" icon={faTimes} />
         </div>
         <h4 className="empty-title">
-          <span>{t('Error: No posts returned from server')}</span>
+          <span>{t('No posts returned from server')}</span>
         </h4>
         <div className="empty-action">
           <Button onClick={fetchItems}>
