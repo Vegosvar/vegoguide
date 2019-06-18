@@ -34,7 +34,8 @@ const onEnter = location => el => {
     opacity: [0, 1],
     translateY: [`${100 * direction}%`, 0],
     duration: 600,
-    easing: 'cubicBezier(0.4, 0.75, 0.5, 1)'
+    easing: 'cubicBezier(0.4, 0.75, 0.5, 1)',
+    zIndex: 1040
   });
 };
 
@@ -46,7 +47,8 @@ const onExit = location => el => {
     opacity: 0,
     translateY: [0, `${100 * direction}%`],
     duration: 600,
-    easing: 'cubicBezier(0.4, 0.75, 0.5, 1)'
+    easing: 'cubicBezier(0.4, 0.75, 0.5, 1)',
+    zIndex: 1000
   });
 };
 
