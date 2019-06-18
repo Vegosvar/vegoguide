@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import { Button, Loading, PostCardGrid } from 'components';
+import { dispatchPromisify } from 'helpers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fetchPosts } from 'store/modules/Posts/actions';
 import { applyFilters } from 'store/modules/Posts/filters';
@@ -22,11 +23,9 @@ const PostCardGridContainer = ({
     if (!isFetching && !fetchCalled) {
       setFetchCalled(true);
 
-      fetch({
-        onFinished: () => {
-          setFetched(true);
-          setFetchCalled(false);
-        }
+      fetch().finally(() => {
+        setFetched(true);
+        setFetchCalled(false);
       });
     }
   };
@@ -92,7 +91,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  fetch: fetchPosts
+  fetch: dispatchPromisify(fetchPosts)
 };
 
 export default connect(
