@@ -64,8 +64,11 @@ function* fetchPosts(payload = {}) {
     // Get the params and settings ready
     const { params, settings } = yield select(getFetchOptions, payload);
 
-    // Set the abortController signal to the settings so the request can be aborted
-    settings.signal = abortController.signal;
+    // If no abortController is available we hook up one in order to check if the request gets aborted
+    if (!(settings.signal instanceof AbortController)) {
+      // Set the abortController signal to the settings so the request can be aborted and an abortion can be detected
+      settings.signal = abortController.signal;
+    }
 
     // Call the API and fetch the posts
     const response = yield call(Api.Posts.fetch, params, settings);
