@@ -17,7 +17,8 @@ const getFetchOptions = (state, payload) => {
   const params = {
     query: {},
     limit: state.Posts.limit,
-    skip: state.Posts.skip
+    skip: state.Posts.skip,
+    ...payload.params
   };
 
   if (search && search.length > 0) {
@@ -44,9 +45,9 @@ const getFetchOptions = (state, payload) => {
     params.query.categories = categories;
   }
 
-  const settings = {};
+  const settings = { ...payload.settings };
 
-  return { params, settings };
+  return { ...payload, params, settings };
 };
 
 function* fetchPosts(payload = {}) {
