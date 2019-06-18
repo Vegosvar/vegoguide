@@ -3,7 +3,6 @@ import { withRouter } from 'react-router';
 import { withTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { isEqual } from 'lodash';
 import { Button, Navbar } from 'components';
 import LanguageDropdownMenu from '../LanguageDropdownMenu';
 
