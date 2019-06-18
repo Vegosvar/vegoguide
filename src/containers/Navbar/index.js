@@ -1,15 +1,57 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import { Navbar } from 'components';
+import { withTranslation } from 'react-i18next';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { isEqual } from 'lodash';
+import { Button, Navbar } from 'components';
 import LanguageDropdownMenu from '../LanguageDropdownMenu';
+
 import style from './style.module.scss';
 
-const NavbarContainer = ({ history, ...args }) => (
-  <Navbar {...args}>
-    <div className={style.pullRight}>
-      <LanguageDropdownMenu right />
-    </div>
-  </Navbar>
-);
+class NavbarContainer extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default withRouter(NavbarContainer);
+    this.state = {
+      showHomeButton: false
+    };
+
+    this.goBack = this.goBack.bind(this);
+  }
+
+  static getDerivedStateFromProps(props) {
+    return {
+      showHomeButton: props.location.pathname !== '/'
+    };
+  }
+
+  goBack() {
+    this.props.history.push('/');
+  }
+
+  render() {
+    const backButton = this.state.showHomeButton ? (
+      <div>
+        <Button onClick={this.goBack}>
+          <FontAwesomeIcon icon={faChevronLeft} />
+          <span>&nbsp;</span>
+          <span>{this.props.t('Home')}</span>
+        </Button>
+      </div>
+    ) : (
+      ''
+    );
+
+    return (
+      <Navbar {...this.props}>
+        {backButton}
+        <div className={style.pullRight}>
+          <LanguageDropdownMenu right />
+        </div>
+      </Navbar>
+    );
+  }
+}
+
+export default withRouter(withTranslation()(NavbarContainer));
