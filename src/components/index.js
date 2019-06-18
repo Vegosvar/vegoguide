@@ -1,4 +1,3 @@
-export { default as App } from './App';
 export { default as Button } from './Button';
 export { default as Card } from './Card';
 export { default as CardBody } from './CardBody';
@@ -24,6 +23,7 @@ export { default as Label } from './Label';
 export { default as Loading } from './Loading';
 export { default as Menu } from './Menu';
 export { default as MenuItem } from './MenuItem';
+export { default as Navbar } from './Navbar';
 export { default as Page } from './Page';
 export { default as Post } from './Post';
 export { default as PostCard } from './PostCard';
@@ -34,4 +34,4 @@ export { default as PostMapMarker } from './PostMapMarker';
 export { default as Row } from './Row';
 
 // TODO: Move these components into views/containers. The reason they can't be exported in their alphabetical order is due to them using containers
-export { default as Navbar } from './Navbar';
+export { default as App } from './App';
