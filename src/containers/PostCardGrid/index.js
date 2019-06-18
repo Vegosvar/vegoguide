@@ -90,9 +90,9 @@ const mapStateToProps = state => ({
   filteredPosts: applyFilters(state) // Todo, should probably memoize this
 });
 
-const mapDispatchToProps = {
-  fetch: dispatchPromisify(fetchPosts)
-};
+const mapDispatchToProps = (dispatch) => ({
+  fetch: dispatchPromisify(dispatch, fetchPosts)
+});
 
 export default connect(
   mapStateToProps,
