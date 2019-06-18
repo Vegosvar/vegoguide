@@ -3,11 +3,11 @@ import { I18nextProvider } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import ReactDOM from 'react-dom';
-import Routes from './routes';
-import store from './store';
-import history from './store/middleware/history';
+import Routes from 'routes';
+import store from 'store';
+import history from 'store/middleware/history';
 import i18n from './i18n';
-import App from './components/App';
+import App from 'components/App';
 import './styles/index.scss';
 // import * as serviceWorker from './scripts/serviceWorker';
 
