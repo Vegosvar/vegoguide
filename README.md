@@ -15,10 +15,10 @@ Client for [Vegosvar.se](https://vegosvar.se) built with:
 $ git clone https://github.com/Vegosvar/vegoguide-client
 $ cd vegoguide-client
 $ npm install
-$ cp config.sample.json config.json
+$ cp src/config.sample.js src/config.js
 ```
 
-Edit `config.json` with a text editor and configure the API properties
+Edit `src/config.js` with a text editor and configure the API properties
 
 ## Start development server
 
