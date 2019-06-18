@@ -32,7 +32,7 @@ const onEnter = location => el => {
   anime({
     targets: el,
     opacity: [0, 1],
-    translateX: [`${100 * direction}%`, 0],
+    translateY: [`${100 * direction}%`, 0],
     duration: 600,
     easing: 'cubicBezier(0.4, 0.75, 0.5, 1)'
   });
@@ -44,7 +44,7 @@ const onExit = location => el => {
   anime({
     targets: el,
     opacity: 0,
-    translateX: [0, `${100 * direction}%`],
+    translateY: [0, `${100 * direction}%`],
     duration: 600,
     easing: 'cubicBezier(0.4, 0.75, 0.5, 1)'
   });
