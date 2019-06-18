@@ -27,7 +27,7 @@ ReactDOM.render(
 if (process.env.NODE_ENV !== 'production') {
   // HMR support
   if (module.hot) {
-    module.hot.accept(['./components/App/index.js', './routes', './views', './i18n'], () => {
+    module.hot.accept(['./components/App/index.js', './routes', './store' './views', './i18n'], () => {
       /* eslint-disable global-require */
       const NextApp = require('./components/App').default;
       const NewRoutes = require('./routes').default;
