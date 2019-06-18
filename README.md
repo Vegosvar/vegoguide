@@ -7,7 +7,7 @@ Client for [Vegosvar.se](https://vegosvar.se) built with:
 * Redux Saga
 * React-Router
 
-# Install
+## Install
 
 > Remember to set up the [API](https://github.com/Vegosvar/vegoguide-api) first
 
@@ -20,19 +20,19 @@ $ cp config.sample.json config.json
 
 Edit `config.json` with a text editor and configure the API properties
 
-# Start development server
+## Start development server
 
 ```shell
 $ npm start
 ```
 
-# Run tests
+## Run tests
 
 ```shell
 $ npm run test
 ```
 
-# Build for deployment
+## Build for deployment
 
 ```shell
 $ npm run build
