@@ -9,7 +9,7 @@ Client for [Vegosvar.se](https://vegosvar.se) built with:
 
 # Install
 
-> Remember to install the [API](https://github.com/Vegosvar/vegoguide-api) first
+> Remember to set up the [API](https://github.com/Vegosvar/vegoguide-api) first
 
 ```shell
 $ git clone https://github.com/Vegosvar/vegoguide-client
