@@ -11,7 +11,7 @@ import {
 import { FETCH_POSTS } from '../constants';
 import { createPost, setError, setFetching } from '../actions';
 
-const getFetchOptions = state => {
+const getFetchOptions = (state, payload) => {
   const { categories, search } = state.Posts.filter;
 
   const params = {
@@ -49,7 +49,7 @@ const getFetchOptions = state => {
   return { params, settings };
 };
 
-function* fetchPosts() {
+function* fetchPosts(payload = {}) {
   // Clear last error
   yield put(setError(null));
 
@@ -61,7 +61,10 @@ function* fetchPosts() {
 
   try {
     // Get the params and settings ready
-    const { params, settings } = yield select(getFetchOptions);
+    const { params, settings } = yield select(
+      getFetchOptions,
+      payload
+    );
 
     // Set the abortController signal to the settings so the request can be aborted
     settings.signal = abortController.signal;
