@@ -1,5 +1,6 @@
 .transition-group {
-  height: 100%;
+  // Take up all available height except for the navbar
+  height: calc(100% - 58px);
   position: relative;
   width: 100%;
 }
