@@ -1,10 +1,10 @@
 import config from 'config';
 
-const { host, port, protocol, token, version } = config.api;
+const { host, port, protocol, prefix, token, version } = config.api;
 
 export const getUrl = (path = '', params) => {
   const url = new URL(
-    `${protocol}://${host}${port ? `:${port}` : ''}/${version}/${path}`
+    `${protocol}://${host}${port ? `:${port}` : ''}/${prefix ? `:${prefix}` : ''}${version}/${path}`
   );
   if (params) {
     Object.keys(params).forEach(key =>
