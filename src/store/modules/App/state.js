@@ -22,6 +22,10 @@ const state = {
   syncedDate: 0,
   syncError: null,
   syncStores: ['Posts'],
+  screen: {
+    height: 0,
+    width: 0
+  },
   language: 'sv',
   languages: [
     {
