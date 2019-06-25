@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { getScreenProperties } from 'hooks';
+import { getBreakpoint, getScreenProperties } from 'hooks';
 import {
+  setBreakpoint,
   setScreenHeight,
   setScreenWidth
 } from 'store/modules/App/actions';
@@ -13,6 +14,9 @@ const AppContainer = ({ children }) => {
   const { height, width } = getScreenProperties();
   dispatch(setScreenHeight(height));
   dispatch(setScreenWidth(width));
+
+  const breakpoint = getBreakpoint();
+  dispatch(setBreakpoint(breakpoint));
 
   return <App>{children}</App>;
 };
