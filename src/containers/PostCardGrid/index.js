@@ -13,6 +13,7 @@ import propTypes from './prop-types';
 
 const PostCardGridContainer = ({
   posts,
+  columnSize,
   fetch,
   isFetching,
   filteredPosts,
@@ -80,8 +81,7 @@ const PostCardGridContainer = ({
     );
   }
 
-  const size = 12; // TODO: Determine the size depending on the device's screen size
-  return <PostCardGrid items={filteredPosts} size={size} />;
+  return <PostCardGrid items={filteredPosts} size={columnSize} />;
 };
 
 PostCardGridContainer.propTypes = propTypes;
@@ -89,10 +89,11 @@ PostCardGridContainer.propTypes = propTypes;
 const mapStateToProps = state => ({
   isFetching: state.Posts.fetching,
   posts: state.Posts.items,
+  columnSize: state.App.breakpoint.columnSize,
   filteredPosts: applyFilters(state) // Todo, should probably memoize this
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   fetch: dispatchPromisify(dispatch, fetchPosts)
 });
 
