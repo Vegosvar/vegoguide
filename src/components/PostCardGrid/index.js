@@ -36,7 +36,7 @@ const PostCardGrid = ({ items, size }) => (
           onExit={onElementExit}
           key={item._id}
         >
-          <Col className="mt-2" size={size}>
+          <Col size={size}>
             <PostCard {...item} />
           </Col>
         </Flipped>
