@@ -7,7 +7,7 @@ import Routes from 'routes';
 import store from 'store';
 import history from 'store/middleware/history';
 import i18n from './i18n';
-import App from 'components/App';
+import App from 'containers/App';
 import './styles/index.scss';
 // import * as serviceWorker from './scripts/serviceWorker';
 
@@ -27,9 +27,9 @@ ReactDOM.render(
 if (process.env.NODE_ENV !== 'production') {
   // HMR support
   if (module.hot) {
-    module.hot.accept(['./components/App/index.js', './routes', './store', './views', './i18n'], () => {
+    module.hot.accept(['./containers/App/index.js', './routes', './store', './views', './i18n'], () => {
       /* eslint-disable global-require */
-      const NextApp = require('./components/App').default;
+      const NextApp = require('./containers/App').default;
       const NewRoutes = require('./routes').default;
       const NewStore = require('./store').default;
       const NewI18n = require('./i18n').default;
