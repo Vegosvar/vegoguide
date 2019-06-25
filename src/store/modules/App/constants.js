@@ -1,4 +1,5 @@
 export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE';
+export const SET_BREAKPOINT = 'SET_BREAKPOINT';
 export const SET_SYNCED = 'SET_SYNCED';
 export const SET_SYNCING = 'SET_SYNCING';
 export const SET_SYNCED_DATE = 'SET_SYNCED_DATE';

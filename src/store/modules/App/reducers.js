@@ -1,5 +1,6 @@
 import { set } from 'lodash';
 import {
+  SET_BREAKPOINT,
   SET_LANGUAGE,
   SET_SCREEN_HEIGHT,
   SET_SCREEN_WIDTH,
@@ -9,6 +10,11 @@ import {
 } from './constants';
 
 const reducers = {
+  [SET_BREAKPOINT](state, { breakpoint }) {
+    set(state, 'breakpoint', breakpoint);
+
+    return state;
+  },
   [SET_LANGUAGE](state, { language }) {
     set(state, 'language', language);
 

@@ -1,5 +1,6 @@
 import {
   CHANGE_LANGUAGE,
+  SET_BREAKPOINT,
   SET_LANGUAGE,
   SET_SCREEN_HEIGHT,
   SET_SCREEN_WIDTH,
@@ -9,6 +10,11 @@ import {
 export const changeLanguage = language => ({
   type: CHANGE_LANGUAGE,
   language
+});
+
+export const setBreakpoint = breakpoint => ({
+  type: SET_BREAKPOINT,
+  breakpoint
 });
 
 export const setLanguage = language => ({
