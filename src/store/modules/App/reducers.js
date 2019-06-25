@@ -7,8 +7,8 @@ import {
 } from './constants';
 
 const reducers = {
-  [SET_SYNCING](state, { value }) {
-    set(state, 'isSyncing', value);
+  [SET_LANGUAGE](state, { language }) {
+    set(state, 'language', language);
 
     return state;
   },
@@ -17,13 +17,13 @@ const reducers = {
 
     return state;
   },
-  [SET_SYNCED_DATE](state, { value }) {
-    set(state, 'syncedDate', value);
+  [SET_SYNCING](state, { value }) {
+    set(state, 'isSyncing', value);
 
     return state;
   },
-  [SET_LANGUAGE](state, { language }) {
-    set(state, 'language', language);
+  [SET_SYNCED_DATE](state, { value }) {
+    set(state, 'syncedDate', value);
 
     return state;
   }
