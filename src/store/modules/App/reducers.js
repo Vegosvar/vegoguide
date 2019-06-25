@@ -1,6 +1,8 @@
 import { set } from 'lodash';
 import {
   SET_LANGUAGE,
+  SET_SCREEN_HEIGHT,
+  SET_SCREEN_WIDTH,
   SET_SYNCED_DATE,
   SET_SYNCED,
   SET_SYNCING
@@ -24,6 +26,16 @@ const reducers = {
   },
   [SET_SYNCED_DATE](state, { value }) {
     set(state, 'syncedDate', value);
+
+    return state;
+  },
+  [SET_SCREEN_HEIGHT](state, { value }) {
+    set(state, 'screen.height', value);
+
+    return state;
+  },
+  [SET_SCREEN_WIDTH](state, { value }) {
+    set(state, 'screen.width', value);
 
     return state;
   }
