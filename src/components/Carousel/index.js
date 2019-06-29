@@ -20,7 +20,7 @@ const Carousel = ({ active, height, images }) => {
       name="carousel-radio"
       hidden="hidden"
       defaultChecked={index === active ? 'checked' : undefined}
-      key={image.src}
+      key={`${image.src}-${index}`}
     />
   ));
 
@@ -34,7 +34,7 @@ const Carousel = ({ active, height, images }) => {
           'carousel-item',
           active === index ? style.noAnimation : undefined
         ])}
-        key={image.src}
+        key={`${image.src}-${index}`}
       >
         {images.length > 1 ? (
           <React.Fragment>
@@ -60,7 +60,7 @@ const Carousel = ({ active, height, images }) => {
           <Label
             className="nav-item"
             htmlFor={`slide-${index}`}
-            key={image.src}
+            key={`${image.src}-${index}`}
           >
             {index}
           </Label>
