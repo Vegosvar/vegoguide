@@ -1,0 +1,27 @@
+// Overrides react-carousel
+.BrainhubCarousel__dots {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+
+  li {
+    margin-top: 0;
+  }
+}
+
+.BrainhubCarousel__dot {
+  &.BrainhubCarousel__dot--selected {
+    &::before {
+      background: $background-color !important;
+    }
+  }
+
+  &::before {
+    background: transparent !important;
+    border: 2px solid $background-color !important;
+    border-radius: 50%;
+    height: 6px !important;
+    padding: 4px !important;
+    width: 6px !important;
+  }
+}
