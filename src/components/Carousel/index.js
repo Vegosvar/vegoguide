@@ -16,18 +16,26 @@ const Carousel = ({ active, images }) => {
   const [carouselIndex, setCarouselIndex] = useState(active);
 
   const arrowLeft = (
-    <div className={classnames(style.arrow, style.left)}>
-      <FontAwesomeIcon className={style.icon} fixedWidth icon={faChevronLeft} />
+    <div className={classnames(style.arrowWrapper, style.left)}>
+      <div className={classnames(style.arrow, style.left)}>
+        <FontAwesomeIcon
+          className={style.icon}
+          fixedWidth
+          icon={faChevronLeft}
+        />
+      </div>
     </div>
   );
 
   const arrowRight = (
-    <div className={classnames(style.arrow, style.right)}>
-      <FontAwesomeIcon
-        className={style.icon}
-        fixedWidth
-        icon={faChevronRight}
-      />
+    <div className={classnames(style.arrowWrapper, style.right)}>
+      <div className={classnames(style.arrow, style.right)}>
+        <FontAwesomeIcon
+          className={style.icon}
+          fixedWidth
+          icon={faChevronRight}
+        />
+      </div>
     </div>
   );
 
