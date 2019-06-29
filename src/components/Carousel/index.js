@@ -69,6 +69,7 @@ const Carousel = ({ active, height, images }) => {
     ) : (
       ''
     );
+
   return (
     <div className="carousel" style={{ height }}>
       {inputs}
