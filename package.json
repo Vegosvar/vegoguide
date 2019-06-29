@@ -5,6 +5,7 @@
   "author": "Tobias Järvelöv",
   "license": "MIT",
   "dependencies": {
+    "@brainhubeu/react-carousel": "^1.10.17",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
