@@ -7,6 +7,11 @@ const ImageSizesPropTypes = PropTypes.shape({
     width: PropTypes.number.isRequired,
     url: PropTypes.string.isRequired
   }).isRequired,
+  large: PropTypes.shape({
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired
+  }).isRequired,
   thumbnail: PropTypes.shape({
     height: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
