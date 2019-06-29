@@ -15,29 +15,35 @@ import '@brainhubeu/react-carousel/lib/style.css';
 const Carousel = ({ active, images }) => {
   const [carouselIndex, setCarouselIndex] = useState(active);
 
-  const arrowLeft = (
-    <div className={classnames(style.arrowWrapper, style.left)}>
-      <div className={classnames(style.arrow, style.left)}>
-        <FontAwesomeIcon
-          className={style.icon}
-          fixedWidth
-          icon={faChevronLeft}
-        />
+  const arrowLeft =
+    images.length > 1 ? (
+      <div className={classnames(style.arrowWrapper, style.left)}>
+        <div className={classnames(style.arrow, style.left)}>
+          <FontAwesomeIcon
+            className={style.icon}
+            fixedWidth
+            icon={faChevronLeft}
+          />
+        </div>
       </div>
-    </div>
-  );
+    ) : (
+      ''
+    );
 
-  const arrowRight = (
-    <div className={classnames(style.arrowWrapper, style.right)}>
-      <div className={classnames(style.arrow, style.right)}>
-        <FontAwesomeIcon
-          className={style.icon}
-          fixedWidth
-          icon={faChevronRight}
-        />
+  const arrowRight =
+    images.length > 1 ? (
+      <div className={classnames(style.arrowWrapper, style.right)}>
+        <div className={classnames(style.arrow, style.right)}>
+          <FontAwesomeIcon
+            className={style.icon}
+            fixedWidth
+            icon={faChevronRight}
+          />
+        </div>
       </div>
-    </div>
-  );
+    ) : (
+      ''
+    );
 
   return (
     <div className={style.wrapper}>
@@ -54,12 +60,16 @@ const Carousel = ({ active, images }) => {
           <Image key={`${image.src}-${index}`} {...image} />
         ))}
       </ReactCarousel>
-      <Dots
-        className={style.dots}
-        number={images.length}
-        value={carouselIndex}
-        onChange={setCarouselIndex}
-      />
+      {images.length > 1 ? (
+        <Dots
+          className={style.dots}
+          number={images.length}
+          value={carouselIndex}
+          onChange={setCarouselIndex}
+        />
+      ) : (
+        ''
+      )}
     </div>
   );
 };
