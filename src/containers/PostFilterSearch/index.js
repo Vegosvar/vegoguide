@@ -58,7 +58,7 @@ const PostFilterSearch = ({
   };
 
   return (
-    <Input {...props} value={value || locationSearch} onChange={onChange} />
+    <Input {...props} value={value || locationSearch} type="search" onChange={onChange} />
   );
 };
 
