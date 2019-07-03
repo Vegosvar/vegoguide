@@ -1,10 +1,13 @@
 import config from 'config';
+import store from 'store';
 
-const { host, port, protocol, prefix, token, version } = config.api;
+const { host, port, protocol, prefix, version } = config.api;
 
 export const getUrl = (path = '', params) => {
   const url = new URL(
-    `${protocol}://${host}${port ? `:${port}` : ''}${prefix ? `/${prefix}` : ''}/${version}/${path}`
+    `${protocol}://${host}${port ? `:${port}` : ''}${
+      prefix ? `/${prefix}` : ''
+    }/${version}/${path}`
   );
 
   if (params) {
@@ -16,7 +19,15 @@ export const getUrl = (path = '', params) => {
   return url;
 };
 
-export const getOptions = settings => ({
-  ...settings,
-  token: `JWT ${token}`
-});
+export const getOptions = (settings = {}) => {
+  const state = store.getState();
+
+  return {
+    ...settings,
+    headers: {
+      'Accept-Language': state.App.language,
+      Authorization: state.App.token ? `JWT ${state.App.token}` : '',
+      ...settings.headers
+    }
+  };
+};
