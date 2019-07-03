@@ -2,8 +2,10 @@ import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import XHR from 'i18next-xhr-backend';
+import { getUrl } from 'api/helpers';
 
 // TODO: Yay, first TODO! Move the locales to the backend and fetch and cache them
+const url = `${getUrl('i18n')}/{{lng}}/{{ns}}`;
 
 i18n
   .use(XHR)
@@ -11,8 +13,8 @@ i18n
   .use(initReactI18next)
   .init({
     backend: {
-      addPath: '/i18n/{{lng}}/{{ns}}',
-      loadPath: '/i18n/{{lng}}/{{ns}}'
+      addPath: url,
+      loadPath: url,
     },
     debug: false,
     fallbackLng: 'en',
