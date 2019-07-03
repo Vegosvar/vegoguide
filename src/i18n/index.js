@@ -22,7 +22,6 @@ const getMessages = data =>
     {}
   );
 
-// TODO: Yay, first TODO! Move the locales to the backend and fetch and cache them
 const url = `${getUrl('i18n')}/{{lng}}/{{ns}}`;
 
 i18n
