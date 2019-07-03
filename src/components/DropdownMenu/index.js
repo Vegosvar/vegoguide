@@ -18,8 +18,7 @@ const DropdownMenu = ({
   const onChangeItem = newValue => {
     if (multiple) {
       if (value.includes(newValue)) {
-        const newValue = value.filter(item => item !== newValue);
-        return onChange(newValue);
+        return onChange(value.filter(item => item !== newValue));
       }
 
       return onChange([...value, newValue]);
