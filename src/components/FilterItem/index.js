@@ -9,7 +9,6 @@ const FilterItem = ({ className, option, selected, onChange, ...props }) => {
   const value = get(option, 'value', option);
   const label = get(option, 'label', option);
 
-  const onClickHandler = onChange.bind(this, value);
   const onKeyDownHandler = e => {
     const code = e.which || e.keyCode;
     if (code === 13 || code === 32) {
@@ -29,7 +28,7 @@ const FilterItem = ({ className, option, selected, onChange, ...props }) => {
   return (
     <Button
       className={classes}
-      onClick={onClickHandler}
+      onClick={() => onChange(value)}
       onKeyDown={onKeyDownHandler}
       role="button"
       tabIndex={0}
