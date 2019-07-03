@@ -1,10 +1,24 @@
-import { connect } from 'react-redux';
+import React, { useCallback } from 'react';
 import Filter from 'components/Filter';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchPosts, setFilterCategories } from 'store/modules/Posts/actions';
-import i18n from 'i18n';
+import { useTranslation } from 'react-i18next';
 
-const mapStateToProps = state => ({
-  options: state.Posts.items
+const PostFilterCategoriesContainer = () => {
+  const dispatch = useDispatch();
+  const onChange = useCallback(
+    (...args) => {
+      dispatch(setFilterCategories(...args));
+      dispatch(fetchPosts()); // TODO: This should be a saga
+    },
+    [dispatch]
+  );
+
+  const items = useSelector(state => state.Posts.items);
+  const value = useSelector(state => state.Posts.filter.categories);
+  const { t } = useTranslation(['postCategories']);
+
+  const options = items
     .reduce(
       (categories, item) => [
         ...categories,
@@ -13,21 +27,13 @@ const mapStateToProps = state => ({
       []
     )
     .map(category => ({
-      label: i18n.t(`postCategories:${category.title}`),
+      label: t(`postCategories:${category.title}`),
       value: category._id
-    })),
-  value: state.Posts.filter.categories,
-  multiple: true
-});
+    }));
 
-const mapDispatchToProps = dispatch => ({
-  onChange: (...args) => {
-    dispatch(setFilterCategories(...args))
-    dispatch(fetchPosts())
-  }
-});
+  return (
+    <Filter options={options} value={value} onChange={onChange} multiple />
+  );
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Filter);
+export default PostFilterCategoriesContainer;

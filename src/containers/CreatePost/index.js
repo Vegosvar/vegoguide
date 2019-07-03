@@ -1,29 +1,29 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PostForm from 'components/PostForm';
 import { createPost, updatePost } from 'store/modules/Posts/actions';
 import uuidv4 from 'uuid/v4';
+import propTypes from './prop-types';
 
-const mapStateToProps = (state, { localId }) => ({
-  post: state.Posts.items.find(item => item.localId === localId)
-});
+const PostFormContainer = ({ localId }) => {
+  const statePost = useSelector(state =>
+    state.Posts.items.find(item => item.localId === localId)
+  );
 
-const mapDispatchToProps = {
-  create: createPost,
-  update: updatePost
-};
+  const dispatch = useDispatch();
+  const submitCallback = statePost ? createPost : updatePost;
+  const onSubmit = useCallback(() => dispatch(submitCallback), [
+    dispatch,
+    submitCallback
+  ]);
 
-const PostFormContainer = ({ create, update, post }) => {
-  const submit = post ? createPost : updatePost;
-
-  const postValue = post || {
+  const post = statePost || {
     localId: uuidv4()
   };
 
-  return <PostForm post={postValue} submit={submit} />;
+  return <PostForm post={post} submit={onSubmit} />;
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PostFormContainer);
+PostFormContainer.propTypes = propTypes;
+
+export default PostFormContainer;

@@ -1,21 +1,27 @@
-import { connect } from 'react-redux';
-import i18n from 'i18n';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import DropdownMenu from 'components/DropdownMenu';
 import { changeLanguage } from 'store/modules/App/actions';
 
-const mapStateToProps = state => ({
-  options: state.App.languages.map(({ label, value }) => ({
-    label: i18n.t(`languages:${label}`),
-    value
-  })),
-  label: i18n.t('common:Language')
-});
+const LanguageDropdownMenuContainer = () => {
+  const dispatch = useDispatch();
+  const onChange = useCallback((...args) => dispatch(changeLanguage(...args)), [
+    dispatch
+  ]);
 
-const mapDispatchToProps = {
-  onChange: changeLanguage
+  const { t } = useTranslation(['common', 'languages']);
+
+  const options = useSelector(state =>
+    state.App.languages.map(({ label, value }) => ({
+      label: t(`languages:${label}`),
+      value
+    }))
+  );
+
+  const label = t('common:Language');
+
+  return <DropdownMenu options={options} label={label} onChange={onChange} />;
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DropdownMenu);
+export default LanguageDropdownMenuContainer;

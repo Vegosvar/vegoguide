@@ -1,34 +1,38 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Loading from 'components/Loading';
 import Post from 'components/Post';
 import { fetchPosts } from 'store/modules/Posts/actions';
+import propTypes from './prop-types';
 
-const mapStateToProps = (state, { url }) => ({
-  post: state.Posts.items.find(item => item.url === url)
-});
+const PostContainer = ({ url }) => {
+  const dispatch = useDispatch();
+  const post = useSelector(state =>
+    state.Posts.items.find(item => item.url === url)
+  );
 
-const mapDispatchToProps = {
-  fetchPosts
-};
+  useEffect(
+    () => {
+      dispatch(
+        fetchPosts({
+          query: {
+            url: {
+              $in: [url]
+            }
+          }
+        })
+      );
+    },
+    [dispatch, url]
+  );
 
-const PostContainer = ({ url, post, fetchPosts }) => {
   if (!post) {
-    fetchPosts({
-      query: {
-        url: {
-          $in: [url]
-        }
-      }
-    });
-
     return <Loading height="100%" />;
   }
 
   return <Post {...post} />;
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PostContainer);
+PostContainer.propTypes = propTypes;
+
+export default PostContainer;
