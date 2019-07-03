@@ -17,14 +17,13 @@ const filters = {
   search
 };
 
-export const applyFilters = state =>
-  Object.keys(state.Posts.filter).reduce((items, key) => {
-    const filter = state.Posts.filter[key];
-    if (!isEmpty(filter)) {
-      return filters[key]({ filter, items });
+export const applyFilters = (filter, items) =>
+  Object.keys(filter).reduce((filteredItems, key) => {
+    if (!isEmpty(filter[key])) {
+      return filters[key]({ filter: filter[key], items: filteredItems });
     }
 
-    return items;
-  }, state.Posts.items);
+    return filteredItems;
+  }, items);
 
 export default filters;
