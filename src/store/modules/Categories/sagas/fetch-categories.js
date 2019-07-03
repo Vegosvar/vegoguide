@@ -12,34 +12,12 @@ import { FETCH_CATEGORIES } from '../constants';
 import { createCategory, setError, setFetching } from '../actions';
 
 const getFetchOptions = (state, payload) => {
-  const { search } = state.Categories.filter;
-
   const params = {
     query: {},
     limit: state.Categories.limit,
     skip: state.Categories.skip,
     ...payload.params
   };
-
-  if (search && search.length > 0) {
-    // TODO We will probably want to be able to set what properties are searched in the UI somewhere
-    const keys = ['title', 'address.city', 'address.street'];
-
-    params.query = {
-      $or: keys.reduce(
-        (query, key) => [
-          ...query,
-          {
-            [key]: {
-              $regex: search,
-              $options: 'gi'
-            }
-          }
-        ],
-        []
-      )
-    };
-  }
 
   const settings = { ...payload.settings };
 
