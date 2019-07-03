@@ -28,12 +28,12 @@ const AppContainer = ({ children }) => {
     [dispatch, width]
   );
 
-  const breakpoint = getBreakpoint();
+  const { value, columnSize } = getBreakpoint();
   useEffect(
     () => {
-      dispatch(setBreakpoint(breakpoint));
+      dispatch(setBreakpoint({ value, columnSize }));
     },
-    [dispatch, breakpoint.value, breakpoint.columnSize]
+    [dispatch, value, columnSize]
   );
 
   return (
