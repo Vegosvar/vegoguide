@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { getBreakpoint, getScreenProperties } from 'hooks';
 import {
@@ -7,6 +7,7 @@ import {
   setScreenWidth
 } from 'store/modules/App/actions';
 import App from 'components/App';
+import Loading from 'components/Loading';
 import propTypes from './prop-types';
 
 const AppContainer = ({ children }) => {
@@ -19,7 +20,11 @@ const AppContainer = ({ children }) => {
   const breakpoint = getBreakpoint();
   dispatch(setBreakpoint(breakpoint));
 
-  return <App>{children}</App>;
+  return (
+    <Suspense fallback={<Loading />}>
+      <App>{children}</App>
+    </Suspense>
+  );
 };
 
 AppContainer.propTypes = propTypes
