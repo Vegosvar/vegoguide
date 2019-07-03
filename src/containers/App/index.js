@@ -7,6 +7,7 @@ import {
   setScreenWidth
 } from 'store/modules/App/actions';
 import App from 'components/App';
+import propTypes from './prop-types';
 
 const AppContainer = ({ children }) => {
   const dispatch = useDispatch();
@@ -20,5 +21,7 @@ const AppContainer = ({ children }) => {
 
   return <App>{children}</App>;
 };
+
+AppContainer.propTypes = propTypes
 
 export default AppContainer;
