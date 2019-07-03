@@ -6,8 +6,8 @@ import ReactDOM from 'react-dom';
 import Routes from 'routes';
 import store from 'store';
 import history from 'store/middleware/history';
-import i18n from './i18n';
 import App from 'containers/App';
+import i18n from './i18n';
 import './styles/index.scss';
 // import * as serviceWorker from './scripts/serviceWorker';
 
