@@ -12,6 +12,7 @@
     "animejs": "^3.0.1",
     "classnames": "^2.2.6",
     "connected-react-router": "^6.4.0",
+    "flag-icon-css": "^3.3.0",
     "history": "^4.9.0",
     "i18next": "^17.0.4",
     "i18next-browser-languagedetector": "^3.0.1",
