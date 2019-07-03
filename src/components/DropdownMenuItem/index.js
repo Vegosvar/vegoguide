@@ -1,7 +1,9 @@
 import React from 'react';
 import { get } from 'lodash';
 import MenuItem from 'components/MenuItem';
+import classnames from 'classnames';
 import propTypes from './prop-types';
+import style from './style.module.scss';
 
 const DropdownMenuItem = ({ className, option, selected, onChange }) => {
   const value = get(option, 'value', option);
@@ -18,7 +20,9 @@ const DropdownMenuItem = ({ className, option, selected, onChange }) => {
 
   return (
     <MenuItem
-      className={className}
+      className={classnames(className, style.dropDownMenuItem, {
+        [style.selected]: selected
+      })}
       onClick={onClickHandler}
       onKeyDown={onKeyDownHandler}
       role="button"

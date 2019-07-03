@@ -1,0 +1,25 @@
+@import 'src/styles/variables';
+
+.dropDownMenuItem {
+  align-items: center;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  margin: 0 !important;
+  outline: 0;
+  padding: 4px 2px !important;
+  user-select: none;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $shadow-color;
+  }
+
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid $primary-color;
+  }
+
+  &.selected {
+    font-weight: bold;
+  }
+}
