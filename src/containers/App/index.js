@@ -27,6 +27,6 @@ const AppContainer = ({ children }) => {
   );
 };
 
-AppContainer.propTypes = propTypes
+AppContainer.propTypes = propTypes;
 
 export default AppContainer;
