@@ -42,7 +42,7 @@ const DropdownMenu = ({
   ));
 
   return (
-    <Dropdown right className={className}>
+    <Dropdown right={right} className={className}>
       <DropdownMenuToggle>{label}</DropdownMenuToggle>
       <Menu>{menuItems}</Menu>
     </Dropdown>
