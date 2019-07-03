@@ -21,7 +21,7 @@ const AppContainer = ({ children }) => {
   dispatch(setBreakpoint(breakpoint));
 
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading height="100%" />}>
       <App>{children}</App>
     </Suspense>
   );
