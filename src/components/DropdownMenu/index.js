@@ -37,7 +37,7 @@ const DropdownMenu = ({
       key={index}
       option={option}
       selected={isSelected(option)}
-      onChange={onChangeItem}
+      onClick={onChangeItem}
     />
   ));
 
