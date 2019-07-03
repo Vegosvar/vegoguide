@@ -4,6 +4,24 @@ import { initReactI18next } from 'react-i18next';
 import XHR from 'i18next-xhr-backend';
 import { getUrl } from 'api/helpers';
 
+const getLocaleMessages = messages =>
+  messages.reduce(
+    (parsedMessages, { message, translation }) => ({
+      ...parsedMessages,
+      [message]: translation
+    }),
+    {}
+  );
+
+const getMessages = data =>
+  data.reduce(
+    (localeMessages, { messages = [] }) => ({
+      ...localeMessages,
+      ...getLocaleMessages(messages)
+    }),
+    {}
+  );
+
 // TODO: Yay, first TODO! Move the locales to the backend and fetch and cache them
 const url = `${getUrl('i18n')}/{{lng}}/{{ns}}`;
 
@@ -15,6 +33,10 @@ i18n
     backend: {
       addPath: url,
       loadPath: url,
+      parse(body) {
+        const { data } = JSON.parse(body);
+        return getMessages(data);
+      }
     },
     debug: false,
     fallbackLng: 'en',
