@@ -33,7 +33,7 @@ const AppContainer = ({ children }) => {
     () => {
       dispatch(setBreakpoint(breakpoint));
     },
-    [dispatch, breakpoint]
+    [dispatch, breakpoint.value, breakpoint.columnSize]
   );
 
   return (
