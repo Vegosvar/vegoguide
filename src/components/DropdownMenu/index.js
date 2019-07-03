@@ -27,19 +27,22 @@ const DropdownMenu = ({
     return onChange(newValue);
   };
 
-  const isSelected = option => {
-    const optionValue = get(option, 'value', option);
-    return multiple ? value.includes(optionValue) : value === optionValue;
-  };
+  const getOptionValue = option => get(option, 'value', option);
 
-  const menuItems = options.map((option, index) => (
-    <DropdownMenuItem
-      key={index}
-      option={option}
-      selected={isSelected(option)}
-      onClick={onChangeItem}
-    />
-  ));
+  const isSelected = optionValue =>
+    multiple ? value.includes(optionValue) : value === optionValue;
+
+  const menuItems = options.map(option => {
+    const optionValue = getOptionValue(option);
+    return (
+      <DropdownMenuItem
+        key={optionValue}
+        option={option}
+        selected={isSelected(optionValue)}
+        onClick={onChangeItem}
+      />
+    );
+  });
 
   return (
     <Dropdown right={right} className={className}>
