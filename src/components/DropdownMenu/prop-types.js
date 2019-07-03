@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 export default {
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string.isRequired,
+      label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
       value: PropTypes.string.isRequired
     })
   ),
