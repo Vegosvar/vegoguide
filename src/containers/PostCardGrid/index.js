@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Button from 'components/Button';
@@ -7,8 +7,8 @@ import Loading from 'components/Loading';
 import PostCardGrid from 'components/PostCardGrid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { dispatchPromisify } from 'helpers';
+import { getFilteredPosts } from 'hooks';
 import { fetchPosts } from 'store/modules/Posts/actions';
-import { applyFilters } from 'store/modules/Posts/filters';
 import { faRedo, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { isEmpty } from 'lodash';
 
@@ -18,16 +18,12 @@ const PostCardGridContainer = () => {
   const dispatch = useDispatch();
   const fetch = dispatchPromisify(dispatch, fetchPosts);
 
-  const posts = useSelector(state => state.Posts.items);
-  const filter = useSelector(state => state.Posts.filter);
-  const filteredPosts = useMemo(() => applyFilters(filter, posts), [
-    filter,
-    posts
-  ]);
+  const filteredPosts = getFilteredPosts();
 
   const isFetching = useSelector(state => state.Posts.fetching);
   const columnSize = useSelector(state => state.App.breakpoint.columnSize);
 
+  const filter = useSelector(state => state.Posts.filter);
   const filterIsNotEmpty = Object.keys(filter).some(
     key => !isEmpty(filter[key])
   );

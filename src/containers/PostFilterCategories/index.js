@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import Filter from 'components/Filter';
+import { getFilteredCategories } from 'hooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilterCategories } from 'store/modules/Posts/actions';
 import { fetchCategories } from 'store/modules/Categories/actions';
@@ -19,15 +20,15 @@ const PostFilterCategoriesContainer = () => {
     [dispatch]
   );
 
-
-  const items = useSelector(state => state.Categories.items);
-  const value = useSelector(state => state.Posts.filter.categories);
+  const filteredItems = getFilteredCategories();
 
   const { t } = useTranslation(['postCategories']);
-  const options = items.map(category => ({
+  const options = filteredItems.map(category => ({
     label: t(`postCategories:${category.title}`),
     value: category._id
   }));
+
+  const value = useSelector(state => state.Posts.filter.categories);
 
   return (
     <Filter options={options} value={value} onChange={onChange} multiple />
