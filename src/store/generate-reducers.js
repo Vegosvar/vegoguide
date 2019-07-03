@@ -1,3 +1,5 @@
+import { cloneDeep } from 'lodash';
+
 export default modules =>
   Object.keys(modules).reduce((generatedReducers, key) => {
     const { reducers = {}, initialState } = modules[key];
@@ -6,7 +8,7 @@ export default modules =>
       ...generatedReducers,
       [key]: (state = initialState, { type, ...action }) => {
         if (type in reducers) {
-          return reducers[type]({ ...state }, { ...action });
+          return reducers[type](cloneDeep(state), { ...action });
         }
 
         return state;
