@@ -1,6 +1,7 @@
 import React from 'react';
 import { get } from 'lodash';
 import MenuItem from 'components/MenuItem';
+import propTypes from './prop-types';
 
 const DropdownMenuItem = ({ className, option, selected, onChange }) => {
   const value = get(option, 'value', option);
@@ -27,5 +28,7 @@ const DropdownMenuItem = ({ className, option, selected, onChange }) => {
     </MenuItem>
   );
 };
+
+DropdownMenuItem.propTypes = propTypes;
 
 export default DropdownMenuItem;
