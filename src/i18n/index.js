@@ -3,6 +3,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import XHR from 'i18next-xhr-backend';
 import { getUrl } from 'api/helpers';
+import store from 'store';
+import { setLanguage } from 'store/modules/App/actions';
 
 const getLocaleMessages = messages =>
   messages.reduce(
@@ -52,5 +54,9 @@ i18n
       nsMode: 'default'
     }
   });
+
+i18n.on('languageChanged', language => {
+  store.dispatch(setLanguage(language));
+});
 
 export default i18n;
