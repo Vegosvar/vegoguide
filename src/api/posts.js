@@ -1,22 +1,24 @@
 import { getOptions, getUrl } from './helpers';
 
-const Posts = {
+const basePath = 'posts';
+
+export default {
   create(body) {
-    return fetch(getUrl('posts'), {
+    return fetch(getUrl(basePath), {
       body,
       method: 'POST'
     });
   },
 
   fetch(params, settings) {
-    const url = getUrl('posts', params);
+    const url = getUrl(basePath, params);
     const options = getOptions(settings);
 
     return fetch(url, options);
   },
 
   patch(id, body) {
-    const url = getUrl('posts', {
+    const url = getUrl(basePath, {
       id
     });
 
@@ -27,7 +29,7 @@ const Posts = {
   },
 
   remove(id) {
-    const url = getUrl('posts', {
+    const url = getUrl(basePath, {
       id
     });
 
@@ -37,7 +39,7 @@ const Posts = {
   },
 
   update(id, body) {
-    const url = getUrl('posts', {
+    const url = getUrl(basePath, {
       id
     });
 
@@ -47,5 +49,3 @@ const Posts = {
     });
   }
 };
-
-export default Posts;
