@@ -44,7 +44,7 @@ i18n
       escapeValue: false
     },
     saveMissing: true,
-    defaultNS: ['common', 'postCategories'],
+    defaultNS: 'common',
     react: {
       wait: true,
       bindI18n: 'languageChanged loaded',
