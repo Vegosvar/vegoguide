@@ -16,13 +16,13 @@ import style from './style.module.scss';
 const Home = ({ t }) => [
   <Hero key="hero">
     <div className={style.searchWrapper}>
-      <PostFilterSearch className={style.search} placeholder={t('Sök')} />
+      <PostFilterSearch className={style.search} placeholder={t('common:Search')} />
       <div className={style.searchIconWrapper}>
         <FontAwesomeIcon icon={faSearch} />
       </div>
     </div>
     <div className={style.lead}>
-      <span>{t('Search vegan restaurants and shops')}</span>
+      <span>{t('common:Search vegan restaurants and shops')}</span>
     </div>
     <div className={style.categoriesWrapper}>
       <PostFilterCategories />

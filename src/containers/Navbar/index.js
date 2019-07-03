@@ -36,7 +36,7 @@ class NavbarContainer extends React.Component {
         <Button onClick={this.goBack}>
           <FontAwesomeIcon icon={faChevronLeft} />
           <span>&nbsp;</span>
-          <span>{this.props.t('Home')}</span>
+          <span>{this.props.t('common:Home')}</span>
         </Button>
       </div>
     ) : (

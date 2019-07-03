@@ -49,13 +49,13 @@ const PostCardGridContainer = ({
             <FontAwesomeIcon size="3x" icon={faTimes} />
           </div>
           <h4 className="empty-title">
-            <span>{t('No posts matched the filters')}</span>
+            <span>{t('common:No posts matched the filters')}</span>
           </h4>
           <div className="empty-action">
             <Button onClick={fetchItems}>
               <FontAwesomeIcon icon={faRedo} />
               &nbsp;
-              <span>{t('Try again')}</span>
+              <span>{t('common:Try again')}</span>
             </Button>
           </div>
         </div>
@@ -68,13 +68,13 @@ const PostCardGridContainer = ({
           <FontAwesomeIcon size="3x" icon={faTimes} />
         </div>
         <h4 className="empty-title">
-          <span>{t('No posts returned from server')}</span>
+          <span>{t('common:No posts returned from server')}</span>
         </h4>
         <div className="empty-action">
           <Button onClick={fetchItems}>
             <FontAwesomeIcon icon={faRedo} />
             &nbsp;
-            <span>{t('Try again')}</span>
+            <span>{t('common:Try again')}</span>
           </Button>
         </div>
       </div>
