@@ -1,4 +1,7 @@
 const state = {
+  breakpoint: {
+    columnSize: 12
+  },
   breakpoints: [
     {
       value: 540,
