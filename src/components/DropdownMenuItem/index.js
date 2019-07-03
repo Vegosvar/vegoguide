@@ -5,16 +5,16 @@ import classnames from 'classnames';
 import propTypes from './prop-types';
 import style from './style.module.scss';
 
-const DropdownMenuItem = ({ className, option, selected, onChange }) => {
-  const value = get(option, 'value', option);
+const DropdownMenuItem = ({ className, option, selected, onClick }) => {
   const label = get(option, 'label', option);
+  const value = get(option, 'value', option);
 
-  const onClickHandler = onChange.bind(this, value);
+  const onClickHandler = () => onClick(value);
   const onKeyDownHandler = e => {
     const code = e.which || e.keyCode;
     if (code === 13 || code === 32) {
       // Enter or space
-      onChange(value);
+      onClick(value);
     }
   };
 
