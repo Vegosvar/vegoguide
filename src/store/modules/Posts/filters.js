@@ -2,7 +2,7 @@ import { isEmpty } from 'lodash';
 
 export const categories = ({ filter, items }) =>
   items.filter(item =>
-    item.categories.some(category => filter.includes(category._id))
+    filter.every(value => item.categories.some(category => category._id === value))
   );
 
 export const search = ({ filter, items }) =>
