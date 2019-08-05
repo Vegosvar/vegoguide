@@ -2,21 +2,9 @@ import PropTypes from 'prop-types';
 
 const ImageSizesPropTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
-  original: PropTypes.shape({
-    height: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-    url: PropTypes.string.isRequired
-  }).isRequired,
-  large: PropTypes.shape({
-    height: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-    url: PropTypes.string.isRequired
-  }).isRequired,
-  thumbnail: PropTypes.shape({
-    height: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-    url: PropTypes.string.isRequired
-  }).isRequired
+  original: PropTypes.string.isRequired,
+  large: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired,
 });
 
 export default {

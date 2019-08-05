@@ -11,7 +11,7 @@ const PostCard = ({ cover, title, url }) => (
     <Card>
       <CardImage>
         <Image
-          src={cover.thumbnail.url}
+          src={cover.thumbnail}
           alt={title}
           height="200px"
           width="100%"
