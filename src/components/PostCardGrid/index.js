@@ -6,6 +6,7 @@ import { Flipper, Flipped } from 'react-flip-toolkit';
 import anime from 'animejs';
 import defaultProps from './default-props';
 import propTypes from './prop-types';
+import style from './style.module.scss';
 
 const onElementAppear = (el, index) =>
   anime({
@@ -36,7 +37,7 @@ const PostCardGrid = ({ items, size }) => (
           onExit={onElementExit}
           key={item._id}
         >
-          <Col size={size}>
+          <Col className={style.col} size={size}>
             <PostCard {...item} />
           </Col>
         </Flipped>
