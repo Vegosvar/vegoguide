@@ -42,7 +42,9 @@ const getFetchOptions = (state, payload) => {
   }
 
   if (categories.length > 0) {
-    params.query.categories = categories;
+    params.query['categories._id'] = {
+      $in: categories
+    };
   }
 
   const settings = { ...payload.settings };
