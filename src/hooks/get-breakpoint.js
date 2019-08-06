@@ -7,6 +7,6 @@ export default () => {
   return breakpoints.reduce(
     (currentBreakpoint, breakpoint) =>
       width < breakpoint.value ? currentBreakpoint : breakpoint,
-    0
+    breakpoints[0]
   );
 };
