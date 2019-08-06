@@ -15,30 +15,32 @@ import style from './style.module.scss';
 const Home = () => {
   const { t } = useTranslation(['common']);
 
-  return [
-    <Hero key="hero">
-      <div className={style.searchWrapper}>
-        <PostFilterSearch
-          className={style.search}
-          placeholder={t('common:Search')}
-        />
-        <div className={style.searchIconWrapper}>
-          <FontAwesomeIcon icon={faSearch} />
+  return (
+    <React.Fragment>
+      <Hero>
+        <div className={style.searchWrapper}>
+          <PostFilterSearch
+            className={style.search}
+            placeholder={t('common:Search')}
+          />
+          <div className={style.searchIconWrapper}>
+            <FontAwesomeIcon icon={faSearch} />
+          </div>
         </div>
-      </div>
-      <div className={style.lead}>
-        <span>{t('common:Search vegan restaurants and shops')}</span>
-      </div>
-      <div className={style.categoriesWrapper}>
-        <PostFilterCategories />
-      </div>
-    </Hero>,
-    <Container key="container">
-      <Page>
-        <PostCardGrid />
-      </Page>
-    </Container>
-  ];
+        <div className={style.lead}>
+          <span>{t('common:Search vegan restaurants and shops')}</span>
+        </div>
+        <div className={style.categoriesWrapper}>
+          <PostFilterCategories />
+        </div>
+      </Hero>
+      <Container>
+        <Page>
+          <PostCardGrid />
+        </Page>
+      </Container>
+    </React.Fragment>
+  )
 };
 
 export default Home;
