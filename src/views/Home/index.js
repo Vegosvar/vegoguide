@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import style from './style.module.scss';
 
-// TODO Move PostFilterSearch and icon to its own container ocmponent and animate the logo when posts are fetched
+// TODO Move PostFilterSearch and icon to its own container component and animate the logo when posts are fetched
 
 const Home = () => {
   const { t } = useTranslation(['common']);
