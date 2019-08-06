@@ -12,7 +12,7 @@ const Post = ({
   const active = images.findIndex(image => image._id === cover._id);
   const carouselImages = images.map(image => ({
     alt: image.title,
-    src: image.large.url
+    src: image.large
   }));
 
   return (

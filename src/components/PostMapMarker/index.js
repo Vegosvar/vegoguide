@@ -22,7 +22,7 @@ const PostMapMarker = ({ address, cover, title, url }) => (
     <Popup minWidth={200}>
       <Link to={url}>
         <Image
-          src={cover.thumbnail.url}
+          src={cover.thumbnail}
           alt={title}
           height="100px"
           width="100%"
