@@ -16,9 +16,11 @@ const PostContainer = ({ url }) => {
     () => {
       dispatch(
         fetchPosts({
-          query: {
-            url: {
-              $in: [url]
+          params: {
+            query: {
+              url: {
+                $in: [url]
+              }
             }
           }
         })
