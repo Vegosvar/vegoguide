@@ -55,6 +55,7 @@ const Carousel = ({ active, images }) => {
         onChange={setCarouselIndex}
         addArrowClickHandler
         infinite
+        keepDirectionWhenDragging
       >
         {images.map((image, index) => (
           <Image key={`${image.src}-${index}`} {...image} />
