@@ -2,6 +2,7 @@ import React from 'react';
 import PostFilterCategories from 'containers/PostFilterCategories';
 import PostFilterSearch from 'containers/PostFilterSearch';
 import PostCardGrid from 'containers/PostCardGrid';
+import PostMap from 'containers/PostMap';
 import Container from 'components/Container';
 import Hero from 'components/Hero';
 import Page from 'components/Page';
@@ -38,6 +39,9 @@ const Home = () => {
         <Page>
           <PostCardGrid />
         </Page>
+      </Container>
+      <Container className={style.mapWrapper}>
+        <PostMap />
       </Container>
     </React.Fragment>
   )
