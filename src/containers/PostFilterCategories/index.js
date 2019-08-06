@@ -4,7 +4,6 @@ import { getFilteredCategories } from 'hooks';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilterCategories } from 'store/modules/Posts/actions';
 import { fetchCategories } from 'store/modules/Categories/actions';
-import { useTranslation } from 'react-i18next';
 
 const PostFilterCategoriesContainer = () => {
   const dispatch = useDispatch();
@@ -13,18 +12,18 @@ const PostFilterCategoriesContainer = () => {
     [dispatch]
   );
 
+  const language = useSelector(state => state.App.language);
   useEffect(
     () => {
       dispatch(fetchCategories());
     },
-    [dispatch]
+    [dispatch, language]
   );
 
   const filteredItems = getFilteredCategories();
 
-  const { t } = useTranslation(['postCategories']);
   const options = filteredItems.map(category => ({
-    label: t(`postCategories:${category.title}`),
+    label: category.title,
     value: category._id
   }));
 
