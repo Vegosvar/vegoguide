@@ -1,9 +1,12 @@
-import { connect } from 'react-redux';
+import React from 'react';
+import { getFilteredPosts } from 'hooks';
 import PostMap from 'components/PostMap';
-import { applyFilters } from 'store/modules/Posts/filters';
 
-const mapStateToProps = state => ({
-  items: applyFilters(state)
-});
+const PostMapContainer = () => {
+  const items = getFilteredPosts()
 
-export default connect(mapStateToProps)(PostMap);
+  return <PostMap items={items} />
+};
+
+
+export default PostMapContainer;
