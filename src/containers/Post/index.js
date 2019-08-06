@@ -11,6 +11,7 @@ const PostContainer = ({ url }) => {
     state.Posts.items.find(item => item.url === url)
   );
 
+  const language = useSelector(state => state.App.language);
   useEffect(
     () => {
       dispatch(
@@ -23,7 +24,7 @@ const PostContainer = ({ url }) => {
         })
       );
     },
-    [dispatch, url]
+    [dispatch, url, language]
   );
 
   if (!post) {
