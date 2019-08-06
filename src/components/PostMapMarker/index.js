@@ -17,21 +17,26 @@ const icon = new Icon({
   shadowAnchor: [12, 20]
 });
 
-const PostMapMarker = ({ address, cover, title, url }) => (
-  <Marker position={[...address.location.coordinates].reverse()} icon={icon}>
-    <Popup minWidth={200}>
-      <Link to={url}>
-        <Image
-          src={cover.thumbnail}
-          alt={title}
-          height="100px"
-          width="100%"
-        />
-        {title}
-      </Link>
-    </Popup>
-  </Marker>
-);
+const PostMapMarker = ({ address, cover, title, url }) => {
+  const { location = {} } = address;
+  const { coordinates = [] } =  location;
+
+  return (
+    <Marker position={[coordinates[1], coordinates[0]]} icon={icon}>
+      <Popup minWidth={200}>
+        <Link to={url}>
+          <Image
+            src={cover.thumbnail}
+            alt={title}
+            height="100px"
+            width="100%"
+          />
+          {title}
+        </Link>
+      </Popup>
+    </Marker>
+  );
+};
 
 PostMapMarker.propTypes = propTypes;
 
