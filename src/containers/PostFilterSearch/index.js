@@ -48,10 +48,11 @@ const PostFilterSearch = ({
   const onChange = e => {
     const value = String(e.target.value).trim();
 
-    connectedSetURLQueryParam({
-      key: 'search',
-      value
-    });
+    // This causes re-renders with connected-react-router after the update to react 16.9.0
+    // connectedSetURLQueryParam({
+    //   key: 'search',
+    //   value
+    // });
 
     connectedSetFilterSearch(value);
     connectedFetchPosts();
