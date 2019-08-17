@@ -20,12 +20,12 @@ const asyncRoutes = Object.keys(routes)
   .map(({ component, ...route }) => ({
     ...route,
     // eslint-disable-next-line react/display-name
-    component: () => {
+    component: (props) => {
       const Component = lazy(component)
 
       return (
         <Suspense fallback={<Loading />}>
-          <Component />
+          <Component {...props} />
         </Suspense>
       )
     }
