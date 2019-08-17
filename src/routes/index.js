@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { TransitionGroup, Transition } from 'react-transition-group';
 import anime from 'animejs';
-import Loadable from 'react-loadable';
 import Loading from 'components/Loading';
 import * as routes from './routes';
 
@@ -20,10 +19,16 @@ const asyncRoutes = Object.keys(routes)
   .map(key => routes[key])
   .map(({ component, ...route }) => ({
     ...route,
-    component: Loadable({
-      loader: component,
-      loading: Loading
-    })
+    // eslint-disable-next-line react/display-name
+    component: () => {
+      const Component = lazy(component)
+
+      return (
+        <Suspense fallback={<Loading />}>
+          <Component />
+        </Suspense>
+      )
+    }
   }));
 
 const onEnter = location => el => {
