@@ -26,6 +26,12 @@ const getMessages = data =>
 
 const url = `${getUrl('i18n')}/{{lng}}/{{ns}}`;
 
+const languageSupported = (language) => {
+  const state = store.getState()
+
+  return state.App.languages.some(({ value }) => language === value)
+}
+
 i18n
   .use(XHR)
   .use(LanguageDetector)
@@ -56,7 +62,9 @@ i18n
   });
 
 i18n.on('languageChanged', language => {
-  store.dispatch(setLanguage(language));
+  if (languageSupported(language)) {
+    store.dispatch(setLanguage(language));
+  }
 });
 
 export default i18n;
