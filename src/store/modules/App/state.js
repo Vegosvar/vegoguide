@@ -30,7 +30,7 @@ const state = {
     height: 0,
     width: 0
   },
-  language: 'sv',
+  language: 'en',
   languages: [
     {
       label: 'English',
