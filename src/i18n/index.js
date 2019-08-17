@@ -47,7 +47,7 @@ i18n
     },
     debug: false,
     fallbackLng: 'en',
-    preload: ['sv'],
+    preload: ['en', 'sv'],
     interpolation: {
       escapeValue: false
     },
